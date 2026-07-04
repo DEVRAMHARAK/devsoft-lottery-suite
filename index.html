@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///C:/Users/Administrator/Downloads/devsoft-pulse%20(24)%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevSoft Pulse — Core Matrix Suite</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+  /* --- REFINED VAULT OF 12 OPERATIONAL THEMES --- */
+  :root {
+    --bg: #0b0e14; --panel: #121824; --panel2: #192233; --line: #293752;
+    --gold: #e8b94d; --gold-dim: #a68132; --cyan: #3fd4d9; --text: #e7e9ee;
+    --sub: #8b93a7; --danger: #ef5350; --good: #26a69a; --glow: rgba(232, 185, 77, 0.12);
+    --radius-lg: 12px; --radius-md: 8px; --radius-sm: 5px;
+  }
+  body.theme-midnight {
+    --bg: #05070a; --panel: #0e131f; --panel2: #171f32; --line: #263554;
+    --gold: #3892ff; --gold-dim: #1d61b5; --cyan: #b37ffa; --text: #dae1e7;
+    --sub: #7b869a; --danger: #f44336; --good: #4caf50; --glow: rgba(56, 146, 255, 0.12);
+  }
+  body.theme-cyberpunk {
+    --bg: #0f0014; --panel: #1d0226; --panel2: #2b043a; --line: #ff0055;
+    --gold: #00ffcc; --gold-dim: #00997a; --cyan: #ffff00; --text: #ffffff;
+    --sub: #e066ff; --danger: #ff0055; --good: #00ff00; --glow: rgba(0, 255, 204, 0.18);
+  }
+  body.theme-matrix {
+    --bg: #000000; --panel: #040d04; --panel2: #081a08; --line: #00cc00;
+    --gold: #00ff00; --gold-dim: #008000; --cyan: #33ff33; --text: #dffffd;
+    --sub: #00aa00; --danger: #e53935; --good: #00ff00; --glow: rgba(0, 255, 0, 0.15);
+  }
+  body.theme-sunset {
+    --bg: #120b1a; --panel: #1f122c; --panel2: #2b1a3d; --line: #4c2f6d;
+    --gold: #ff9100; --gold-dim: #b36600; --cyan: #cc80ff; --text: #f1e6ff;
+    --sub: #a182be; --danger: #ff3d00; --good: #76ff03; --glow: rgba(255, 145, 0, 0.12);
+  }
+  body.theme-crimson {
+    --bg: #140505; --panel: #240c0c; --panel2: #341212; --line: #5c1f1f;
+    --gold: #ff3333; --gold-dim: #b30000; --cyan: #ff8080; --text: #ffe6e6;
+    --sub: #b37373; --danger: #ff1744; --good: #00e676; --glow: rgba(255, 51, 51, 0.12);
+  }
+  body.theme-forest {
+    --bg: #050c08; --panel: #0d1f14; --panel2: #142f1f; --line: #245437;
+    --gold: #9ccc65; --gold-dim: #689f38; --cyan: #4db6ac; --text: #e8f5e9;
+    --sub: #689f78; --danger: #ef5350; --good: #66bb6a; --glow: rgba(156, 204, 101, 0.12);
+  }
+  body.theme-ice {
+    --bg: #f4f7f6; --panel: #ffffff; --panel2: #e4eae8; --line: #b2c4bf;
+    --gold: #1e293b; --gold-dim: #475569; --cyan: #0284c7; --text: #0f172a;
+    --sub: #64748b; --danger: #d32f2f; --good: #388e3c; --glow: rgba(30, 41, 59, 0.08);
+  }
+  body.theme-royal {
+    --bg: #060614; --panel: #101030; --panel2: #171744; --line: #2b2b80;
+    --gold: #ffd700; --gold-dim: #cca300; --cyan: #66b3ff; --text: #edf2ff;
+    --sub: #8484b3; --danger: #ff1744; --good: #00e676; --glow: rgba(255, 215, 0, 0.12);
+  }
+  body.theme-copper {
+    --bg: #120b08; --panel: #22140e; --panel2: #2f1d14; --line: #543424;
+    --gold: #e67e22; --gold-dim: #d35400; --cyan: #f1c40f; --text: #faebd7;
+    --sub: #a07864; --danger: #e74c3c; --good: #2ecc71; --glow: rgba(230, 126, 34, 0.12);
+  }
+  body.theme-mono {
+    --bg: #0a0a0a; --panel: #141414; --panel2: #1f1f1f; --line: #3a3a3a;
+    --gold: #f5f5f5; --gold-dim: #9e9e9e; --cyan: #aaaaaa; --text: #f0f0f0;
+    --sub: #757575; --danger: #e53935; --good: #4caf50; --glow: rgba(245, 245, 245, 0.1);
+  }
+  body.theme-ocean {
+    --bg: #030f14; --panel: #0a1f29; --panel2: #0f2e3d; --line: #1b526d;
+    --gold: #00cbd6; --gold-dim: #008b94; --cyan: #2ecc71; --text: #ecfcf9;
+    --sub: #61949c; --danger: #e74c3c; --good: #1abc9c; --glow: rgba(0, 203, 214, 0.12);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background: var(--bg); color:var(--text); font-family:'DM Sans', sans-serif;
+    min-height:100vh; padding-bottom:60px; transition: background 0.25s, color 0.25s;
+  }
+  header{ padding:28px 18px 18px; border-bottom:1px solid var(--line); position:relative;}
+  h1{
+    font-family:'Bebas Neue', sans-serif; font-size:44px; letter-spacing:2px; margin:0;
+    background:linear-gradient(90deg, var(--gold), var(--text) 50%, var(--gold));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .tagline{color:var(--sub); font-size:13px; margin-top:4px; font-family:'Space Mono', monospace;}
+  .wrap{max-width:740px; margin:0 auto; padding:0 16px;}
+
+  .tabs{display:flex; gap:8px; margin:18px 0 14px; overflow-x:auto;}
+  .tab{
+    flex:0 0 auto; padding:10px 18px; background:var(--panel); border:1px solid var(--line);
+    color:var(--sub); font-size:13px; font-weight:700; cursor:pointer; border-radius:var(--radius-md); transition:.15s;
+  }
+  .tab.active{ background: var(--glow); border-color:var(--gold); color:var(--gold); transform: translateY(-1px); }
+
+  .card{ background:var(--panel); border:1px solid var(--line); padding:20px; margin-bottom:16px; border-radius:var(--radius-lg); transition: border-color 0.2s; }
+  .card h2{ font-family:'Bebas Neue', sans-serif; letter-spacing:1px; font-size:22px; margin:0 0 4px; color:var(--cyan);}
+  .card .sub{color:var(--sub); font-size:12.5px; margin-bottom:14px; line-height:1.5;}
+
+  select, input[type=number], input[type=text]{
+    background:var(--panel2); border:1px solid var(--line); color:var(--text); border-radius:var(--radius-md);
+    padding:12px; font-family:'Space Mono', monospace; font-size:14px; width:100%; outline: none; transition: all 0.2s ease;
+  }
+  select:focus, input[type=number]:focus, input[type=text]:focus {
+    border-color: var(--gold);
+    font-weight: 700;
+    transform: scale(1.02);
+    box-shadow: 0 0 12px var(--glow);
+  }
+  label{font-size:11.5px; color:var(--sub); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:6px;}
+
+  .method-switch{display:flex; gap:8px; margin-bottom:14px;}
+  .mbtn{
+    flex:1; padding:14px 8px; text-align:center; border:1px solid var(--line); border-radius:var(--radius-md);
+    background:var(--panel2); cursor:pointer; transition:.15s;
+  }
+  .mbtn .name{font-family:'Bebas Neue'; font-size:19px; letter-spacing:1px; color:var(--sub);}
+  .mbtn .desc{font-size:10.5px; color:var(--sub); margin-top:2px;}
+  .mbtn.active{border-color:var(--gold); background: var(--glow); transform: scale(1.02); font-weight: 700;}
+  .mbtn.active .name{color:var(--gold); font-weight: 700;}
+
+  .batch-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px;}
+  .batch-grid button{
+    padding:11px 4px; background:var(--panel2); border:1px solid var(--line); border-radius:var(--radius-md);
+    color:var(--text); font-family:'Space Mono'; font-size:13px; cursor:pointer; transition: all 0.15s ease;
+  }
+  .batch-grid button.sel{border-color:var(--gold); color:var(--gold); background: var(--glow); font-weight: 700; transform: scale(1.04);}
+
+  .gen-btn{
+    width:100%; padding:16px; border:1px solid var(--line); background: var(--panel2); border-radius:var(--radius-md);
+    color: var(--gold); font-family:'Bebas Neue'; font-size:20px; letter-spacing:1.5px;
+    cursor:pointer; transition: 0.2s; outline: none;
+  }
+  .gen-btn:hover{ background: var(--gold); color: var(--bg); transform: translateY(-1px); font-weight: 700; }
+  .gen-btn:active{ transform: translateY(1px); }
+
+  /* --- SQUARE INPUT MECHANICS & POP --- */
+  .numbox-row{display:flex; align-items:center; gap:8px; margin-bottom:10px; width:100%;}
+  .numbox-row .dlabel{width:54px; font-size:11px; color:var(--sub); font-family:'Space Mono'; flex-shrink:0;}
+  .lock-toggle{flex-shrink:0;}
+  .boxes{
+    display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; align-items:center;
+    flex:1 1 auto; min-width:0;
+  }
+  .set .boxes{ display:flex; flex-wrap:nowrap; gap:6px; }
+  #checkerDrawBoxes{ display:flex; flex-wrap:wrap; }
+
+  .numbox{
+    width:42px !important; height:42px !important; min-width:0; flex:none !important; text-align:center;
+    padding: 0 !important; font-family:'Space Mono', monospace; font-weight:700; font-size:13px;
+    background: var(--panel2); border: 1px solid var(--line); color: var(--text); border-radius: var(--radius-sm);
+    line-height:normal; display:flex; align-items:center; justify-content:center; -moz-appearance: textfield; transition: all 0.15s ease;
+  }
+  #drawInputs .numbox{ width:100% !important; height:auto !important; aspect-ratio:1; }
+  .numbox.bonus-slot{ border-color:var(--gold); color:var(--gold); }
+  .numbox.pb2-slot{ border-color:var(--cyan); color:var(--cyan); }
+  .numbox.slot-hidden{ visibility:hidden; }
+  .numbox.slot-inactive{ opacity:.2; pointer-events:none; }
+  .numbox::-webkit-outer-spin-button, .numbox::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .numbox:focus { border-color: var(--gold); background: var(--bg); font-size: 16px; font-weight: 700; transform: scale(1.1); z-index: 5; box-shadow: 0 0 10px var(--gold); }
+  .numbox:disabled{ background:var(--panel2); color:var(--text); border-color:var(--line); opacity:.6; }
+
+  .session-toggle{display:flex; gap:8px; margin-bottom:12px;}
+  .session-toggle button{
+    flex:1; padding:10px; background:var(--panel2); border:1px solid var(--line); border-radius:var(--radius-md);
+    color:var(--sub); font-family:'Space Mono'; font-size:12px; font-weight:700; cursor:pointer; transition: all 0.15s;
+  }
+  .session-toggle button.active{border-color:var(--gold); color:var(--gold); background:var(--glow); transform: scale(1.02);}
+
+  /* --- MANUAL CONFIGURATION BANDS --- */
+  .band-row{
+    display:flex; flex-direction:column; gap:0; margin-bottom:10px; border-radius:var(--radius-md);
+    background:var(--panel2); border:1px solid var(--line); padding:10px;
+  }
+  .band-row-main{display:flex; align-items:center; gap:7px; flex-wrap:nowrap; overflow-x:auto;}
+  .band-row .blabel{font-family:'Bebas Neue'; font-size:18px; color:var(--gold); flex-shrink:0; width:24px; text-align:center;}
+  .band-sq{
+    width:36px !important; height:36px; flex:0 0 36px !important; background:var(--bg); border:1px solid var(--line); color:var(--text);
+    font-family:'Space Mono'; font-size:12px; font-weight:700; text-align:center; outline:none; padding:0 !important; border-radius:var(--radius-sm); transition: all 0.15s;
+  }
+  .band-sq:focus { border-color: var(--gold); transform: scale(1.1); font-size: 14px; font-weight: 700; box-shadow: 0 0 8px var(--gold); z-index: 4; }
+  .band-sq.odd-input{border-color:var(--cyan);}
+  .band-sq.even-input{border-color:var(--good);}
+  .band-sq.any-input{border-color:var(--sub);}
+  .band-sq.block-input{border-color:var(--gold-dim);}
+  .band-sq.pct-sq{color:var(--gold); font-weight:700; border-color: var(--gold-dim);}
+  .band-tag{font-size:10px; color:var(--sub); flex-shrink:0; text-transform:uppercase; letter-spacing:.03em; font-weight:700;}
+
+  .band-dash{color:var(--sub); flex-shrink:0; font-size:11px;}
+  .band-remove{
+    background:none; border:1px solid var(--danger); color:var(--danger); margin-left:auto; border-radius:var(--radius-sm);
+    width:26px; height:26px; cursor:pointer; font-size:13px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  }
+  .band-total-row{
+    font-family:'Space Mono'; font-size:12px; color:var(--sub); margin-top:8px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .band-total-row.mismatch #bandTotalCount{color:var(--danger);}
+  .band-total-row #bandTotalCount{color:var(--good); font-weight:700;}
+
+  .lock-toggle{
+    width:42px; height:42px; flex-shrink:0; border:1px solid var(--line); border-radius:var(--radius-sm);
+    background:var(--panel2); color:var(--sub); font-size:14px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition: all 0.15s;
+  }
+  .lock-toggle.unlocked { border-color:var(--good); color:var(--good); transform: scale(1.04); }
+
+  /* --- 1-52 MATRIX FIELD MAP --- */
+  .matrix-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 10px; }
+  @media(max-width: 480px) { .matrix-grid { grid-template-columns: repeat(7, 1fr); } }
+  .matrix-cell {
+    aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace; font-weight: 700; font-size: 13px; border-radius: var(--radius-sm);
+    background: var(--panel2); border: 1px solid var(--line); color: var(--sub); transition: all 0.15s;
+  }
+  .matrix-cell.pool-unselected { border: 1.5px solid var(--cyan); color: var(--cyan); background: rgba(63, 212, 217, 0.05); }
+  .matrix-cell.pool-unique { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,0.06); }
+  .matrix-cell.pool-repeated { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+
+  /* --- RESULT HIGHLIGHT TOGGLES: tint = half, ring = parity, both stack independently --- */
+  .ball.hl-lower{ background: rgba(63,212,217,0.18) !important; }
+  .ball.hl-upper{ background: rgba(255,183,3,0.18) !important; }
+  .ball.hl-odd{ box-shadow: 0 0 0 2px var(--danger) inset; }
+  .ball.hl-even{ box-shadow: 0 0 0 2px var(--good) inset; }
+  .hl-toggle-bar{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+  .hl-toggle-bar button{
+    flex:1; min-width:78px; padding:8px 4px; background:var(--panel2); border:1px solid var(--line);
+    color:var(--sub); font-family:'Space Mono'; font-size:11px; font-weight:700; cursor:pointer;
+  }
+  .hl-toggle-bar button.on.hl-lower-btn{ border-color:var(--cyan); color:var(--cyan); background:rgba(63,212,217,0.1); }
+  .hl-toggle-bar button.on.hl-upper-btn{ border-color:var(--gold); color:var(--gold); background:rgba(255,183,3,0.1); }
+  .hl-toggle-bar button.on.hl-odd-btn{ border-color:var(--danger); color:var(--danger); background:rgba(255,92,122,0.1); }
+  .hl-toggle-bar button.on.hl-even-btn{ border-color:var(--good); color:var(--good); background:rgba(82,224,160,0.1); }
+
+  /* --- P&L REPORT --- */
+  .pnl-inputs{ display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+  .pnl-inputs label{ font-size:11px; color:var(--sub); font-family:'Space Mono'; }
+  .pnl-inputs input{ width:80px; }
+  .pnl-summary{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin:12px 0; }
+  .pnl-box{ background:var(--panel2); border:1px solid var(--line); padding:12px 8px; text-align:center; }
+  .pnl-box .v{ font-family:'Bebas Neue'; font-size:22px; }
+  .pnl-box .l{ font-size:9px; color:var(--sub); text-transform:uppercase; letter-spacing:.05em; margin-top:2px; }
+  .pnl-box.profit .v{ color:var(--good); } .pnl-box.loss .v{ color:var(--danger); }
+
+  /* --- CLICKABLE GAME PADS --- */
+  .pad-board {
+    display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin: 12px 0;
+  }
+  @media(max-width: 480px) { .pad-board { grid-template-columns: repeat(7, 1fr); } }
+  .pad-cell {
+    aspect-ratio: 1; border: 1px solid var(--line); background: var(--panel2); color: var(--text);
+    display: flex; align-items: center; justify-content: center; font-family: 'Space Mono';
+    font-weight: 500; font-size: 13px; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.15s ease;
+  }
+  .pad-cell:hover { border-color: var(--gold); transform: translateY(-1px); }
+  .pad-cell.sel-active {
+    background: var(--cyan); color: #000000; border-color: var(--cyan);
+    font-weight: 700; font-size: 16px; transform: scale(1.08); box-shadow: 0 0 10px rgba(63, 212, 217, 0.4);
+  }
+  .pad-cell.bonus-active {
+    background: var(--gold); color: #000000; border-color: var(--gold);
+    font-weight: 700; font-size: 16px; transform: scale(1.08); box-shadow: 0 0 10px rgba(232, 185, 77, 0.4);
+  }
+  .pad-counter {
+    font-family: 'Space Mono'; font-size: 12px; color: var(--sub); display: flex; justify-content: space-between; margin-top: 6px;
+  }
+  .pad-counter span strong { color: var(--gold); }
+
+  /* --- ANALYTICS ROW METADATA BADGES --- */
+  .row-metrics-toggle-bar {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+  }
+  .analytics-badge-box {
+    display: flex; gap: 4px; margin-left: auto; flex-shrink: 0; align-items: center;
+  }
+  .an-badge {
+    font-family: 'Space Mono'; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;
+  }
+  .an-badge.l-range { background: rgba(63, 212, 217, 0.12); color: var(--cyan); border: 1px solid rgba(63, 212, 217, 0.3); }
+  .an-badge.h-range { background: rgba(232, 185, 77, 0.12); color: var(--gold); border: 1px solid rgba(232, 185, 77, 0.3); }
+  .an-badge.parity { background: rgba(255, 255, 255, 0.06); color: var(--text); border: 1px solid var(--line); }
+
+  .checker-result{ margin-top:14px; padding:14px; border:1px solid var(--line); background:var(--panel2); border-radius:var(--radius-md); text-align:center; }
+  .checker-result .big{ font-family:'Bebas Neue'; font-size:34px; color:var(--gold); letter-spacing:1px; }
+  .checker-result .label{ font-size:11px; color:var(--sub); text-transform:uppercase; letter-spacing:.06em; }
+  
+  .ball.match-hit { background: var(--good) !important; color: #000000 !important; border-color: var(--good) !important; box-shadow: 0 0 10px var(--good); font-weight: 700; transform: scale(1.04); }
+  .ball.bonus.match-hit { background: var(--good) !important; color: #000000 !important; border-color: var(--good) !important; }
+
+  .util-row{display:flex; gap:8px; margin-top:10px;}
+  .util-btn{
+    flex:1; padding:11px; border:1px solid var(--line); background:var(--panel2); border-radius:var(--radius-md);
+    color:var(--sub); font-size:12px; font-weight:700; cursor:pointer; transition: all 0.15s;
+  }
+  .util-btn:hover { border-color: var(--text); color: var(--text); }
+  .util-btn.warn{color:var(--danger); border-color:var(--danger);}
+  .util-btn.warn:hover{background: var(--danger); color: #000000;}
+  .util-btn.good{color:var(--good); border-color:var(--good);}
+  .util-btn.good:hover{background: var(--good); color: #000000;}
+  
+  .file-btn{display:block; text-align:center; padding:12px; border:1px dashed var(--line); color:var(--sub); font-size:12px; cursor:pointer; margin-top:8px; border-radius:var(--radius-md);}
+  .file-btn:hover { border-color: var(--gold); color: var(--gold); }
+  
+  .results{display:flex; flex-direction:column; gap:6px; max-height:520px; overflow-y:auto; padding-right:4px;}
+  .set{
+    display:flex; align-items:center; gap:6px; background:var(--panel2); border-radius:var(--radius-md);
+    border:1px solid var(--line); padding:10px 12px; font-family:'Space Mono', monospace; font-size:12.5px; transition: border-color 0.15s;
+  }
+  .set.has-prize { border-left: 4px solid var(--good); background: rgba(38, 166, 154, 0.04); }
+  .set .idx{color:var(--sub); width:34px; flex-shrink:0;}
+  
+  .ball {
+    width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius: 50%;
+    font-size:12px; font-weight:700; background:var(--panel); border: 1px solid var(--line); color:var(--text); flex-shrink:0; transition: all 0.15s;
+  }
+  .ball.bonus{background: var(--gold); color: var(--bg); border-color: var(--gold);}
+  .ball.unselected-highlight{outline:2px solid var(--cyan); outline-offset: 1px;}
+
+  .stat-bar{display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
+  .stat{ flex:1; min-width:90px; background:var(--panel2); border:1px solid var(--line); padding:12px; text-align:center; border-radius:var(--radius-md); }
+  .stat .v{font-family:'Bebas Neue'; font-size:24px; color:var(--gold);}
+  .stat .l{font-size:9.5px; color:var(--sub); text-transform:uppercase; letter-spacing:.05em;}
+
+  footer{text-align:center; color:var(--sub); font-size:11px; margin-top:40px; font-family:'Space Mono'; padding-bottom:20px;}
+  .pulse-dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--good); margin-right:6px; box-shadow:0 0 8px var(--good); animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .hidden{display:none !important;}
+  input[type=file]{display:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>DEVSOFT PULSE</h1>
+    <div class="tagline">// system optimization suite — multi-tier evaluation layer</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card" style="margin-top: 16px;">
+    <h2>Visual Palette Configuration</h2>
+    <div class="sub">Switch operational styles across 12 high-contrast system profiles.</div>
+    <select id="themeSelect">
+      <option value="default">DevSoft Classic (Gold &amp; Cyan)</option>
+      <option value="midnight">Midnight Onyx (Deep Blue &amp; Cobalt)</option>
+      <option value="cyberpunk">Cyberpunk Neon (Magenta &amp; High-Volt Aqua)</option>
+      <option value="matrix">Matrix Terminal (Digital Green Monochrome)</option>
+      <option value="sunset">Sunset Amethyst (Warm Amber &amp; Purple)</option>
+      <option value="crimson">Crimson Overdrive (High-Contrast Red)</option>
+      <option value="forest">Forest Rogue (Deep Emerald &amp; Sage)</option>
+      <option value="ice">Ice Clean (Arctic Frost Light-Mode Variant)</option>
+      <option value="royal">Royal Velvet (Indigo &amp; Gold)</option>
+      <option value="copper">Copper Forge (Warm Bronze &amp; Tan)</option>
+      <option value="mono">Mono Grid (Greyscale Terminal)</option>
+      <option value="ocean">Ocean Deep (Teal &amp; Aqua)</option>
+    </select>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="generate">Generate</div>
+    <div class="tab" data-tab="picker">Picker</div>
+    <div class="tab" data-tab="data">Draw Data</div>
+    <div class="tab" data-tab="about">About</div>
+  </div>
+
+  <div id="tab-generate">
+    <div class="card">
+      <h2>Game</h2>
+      <div class="sub">Format selection presets. Boundaries scale automatically.</div>
+      <select id="gameSelect">
+        <option value="lotto" data-range="52" data-main="6" data-bonusmode="single" data-bonusrange="52">SA Lotto (1–52, 6+Bonus)</option>
+        <option value="plus1" data-range="52" data-main="6" data-bonusmode="single" data-bonusrange="52">Lotto Plus 1 (1–52, 6+Bonus)</option>
+        <option value="max5" data-range="52" data-main="6" data-bonusmode="single" data-bonusrange="52">Lotto Max 5 (1–52, 6+Bonus)</option>
+        <option value="powerball" data-range="50" data-main="5" data-bonusmode="dual" data-bonusrange="20">Powerball / Plus (1–50, 5 + PB + PB Plus)</option>
+        <option value="daily" data-range="36" data-main="5" data-bonusmode="none" data-bonusrange="36">Daily Lotto (1–36, 5 numbers, 2 draws)</option>
+        <option value="universal" data-range="52" data-main="6" data-bonusmode="single" data-bonusrange="52">DevSoft Universal (1–52, 6+Bonus)</option>
+      </select>
+    </div>
+
+    <div class="card" id="manualPadCard">
+      <h2>Interactive Game Pad</h2>
+      <div class="sub">Click directly on numbers below to map out custom lines manually. Matrix boundaries shift with game choices.</div>
+      <label id="padMainLabel">Pick 7 Numbers — the last one you tap becomes the Bonus (1–52)</label>
+      <div class="pad-board" id="padMainBoard"><div class="pad-cell">1</div><div class="pad-cell">2</div><div class="pad-cell">3</div><div class="pad-cell">4</div><div class="pad-cell">5</div><div class="pad-cell">6</div><div class="pad-cell">7</div><div class="pad-cell">8</div><div class="pad-cell">9</div><div class="pad-cell">10</div><div class="pad-cell">11</div><div class="pad-cell">12</div><div class="pad-cell">13</div><div class="pad-cell">14</div><div class="pad-cell">15</div><div class="pad-cell">16</div><div class="pad-cell">17</div><div class="pad-cell">18</div><div class="pad-cell">19</div><div class="pad-cell">20</div><div class="pad-cell">21</div><div class="pad-cell">22</div><div class="pad-cell">23</div><div class="pad-cell">24</div><div class="pad-cell">25</div><div class="pad-cell">26</div><div class="pad-cell">27</div><div class="pad-cell">28</div><div class="pad-cell">29</div><div class="pad-cell">30</div><div class="pad-cell">31</div><div class="pad-cell">32</div><div class="pad-cell">33</div><div class="pad-cell">34</div><div class="pad-cell">35</div><div class="pad-cell">36</div><div class="pad-cell">37</div><div class="pad-cell">38</div><div class="pad-cell">39</div><div class="pad-cell">40</div><div class="pad-cell">41</div><div class="pad-cell">42</div><div class="pad-cell">43</div><div class="pad-cell">44</div><div class="pad-cell">45</div><div class="pad-cell">46</div><div class="pad-cell">47</div><div class="pad-cell">48</div><div class="pad-cell">49</div><div class="pad-cell">50</div><div class="pad-cell">51</div><div class="pad-cell">52</div></div>
+      
+      <div id="padBonusSection" class="hidden">
+        <label id="padBonusLabel">Bonus Pool Array</label>
+        <div class="pad-board" id="padBonusBoard"></div>
+      </div>
+
+      <div class="pad-counter">
+        <span id="padSelectionCounts">Total: <strong>0 / 7</strong> (Main: 0, Bonus: 0)</span>
+        <button class="util-btn good" id="padExportBtn" style="flex:none; width:auto; padding:6px 12px; font-size:11px;">Load Into Scan Engine</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Method</h2>
+      <div class="sub">Two system calculation vectors.</div>
+      <div class="method-switch">
+        <div class="mbtn active" data-m="my" id="btnMy">
+          <div class="name">MY METHOD</div>
+          <div class="desc">Band distribution + Unselected matrix balancing</div>
+        </div>
+        <div class="mbtn" data-m="pool" id="btnPool">
+          <div class="name">QUICK PICK</div>
+          <div class="desc">Recent draw composition pool splits</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Batch Size</h2>
+      <div class="sub">Define generation array capacity.</div>
+      <div class="batch-grid">
+        <button data-b="20">20</button>
+        <button data-b="50" class="sel">50</button>
+        <button data-b="100">100</button>
+        <button data-b="200">200</button>
+        <button data-b="300">300</button>
+        <button data-b="1000">1,000</button>
+        <button data-b="2000">2,000</button>
+        <button data-b="custom">Custom</button>
+      </div>
+      <input type="number" id="customBatch" placeholder="Enter custom batch size" class="hidden" style="margin-top:-6px;">
+    </div>
+
+    <div class="card" id="bandConfigCard">
+      <h2>Band Configuration</h2>
+      <div class="sub">My Method only. One line per band — Range, Odd/Even/Any counts, Block numbers, and % all together. Scrolls sideways if needed.</div>
+      <div id="bandRows"><div class="band-row" data-idx="0">
+      <div class="band-row-main">
+        <div class="blabel">B1</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="1">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="11">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="1">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="0">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="0">
+        <span class="band-tag">BLK</span>
+        <input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="0" value="1"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="1" value="2"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="2" value="3"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="3" value="4"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="4" value="5">
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="0">
+        
+      </div>
+    </div><div class="band-row" data-idx="1">
+      <div class="band-row-main">
+        <div class="blabel">B2</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="12">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="22">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="0">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="1">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="0">
+        <span class="band-tag">BLK</span>
+        <input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="0" value="12"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="1" value="13"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="2" value="14"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="3" value="15"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="4" value="16">
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="0">
+        
+      </div>
+    </div><div class="band-row" data-idx="2">
+      <div class="band-row-main">
+        <div class="blabel">B3</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="23">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="32">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="1">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="0">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="0">
+        <span class="band-tag">BLK</span>
+        <input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="0" value="23"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="1" value="24"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="2" value="25"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="3" value="26"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="4" value="27">
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="0">
+        
+      </div>
+    </div><div class="band-row" data-idx="3">
+      <div class="band-row-main">
+        <div class="blabel">B4</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="33">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="42">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="0">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="1">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="0">
+        <span class="band-tag">BLK</span>
+        <input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="0" value="33"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="1" value="34"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="2" value="35"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="3" value="36"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="4" value="37">
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="0">
+        
+      </div>
+    </div><div class="band-row" data-idx="4">
+      <div class="band-row-main">
+        <div class="blabel">B5</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="43">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="52">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="1">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="0">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="0">
+        <span class="band-tag">BLK</span>
+        <input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="0" value="43"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="1" value="44"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="2" value="45"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="3" value="46"><input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="4" value="47">
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="0">
+        
+      </div>
+    </div></div>
+      <div class="util-row">
+        <button class="util-btn good" id="addBandBtn">+ Add Band</button>
+        <button class="util-btn" id="resetBandsBtn">Reset to Auto</button>
+      </div>
+      <div class="band-total-row mismatch" id="bandTotalRow">
+        <span>Configured picks: <span id="bandTotalCount">5</span> / <span id="bandMainTarget">7</span></span>
+        <span id="bandTotalHint" style="color:var(--sub);">2 filled randomly</span>
+      </div>
+    </div>
+
+    <button class="gen-btn" id="genBtn">GENERATE SETS</button>
+
+    <div class="card" style="margin-top:16px;" id="statsCard">
+      <h2>Run Summary</h2>
+      <div class="stat-bar" id="statBar"></div>
+    </div>
+
+    <div class="card">
+      <h2>Batch Draw Match Engine</h2>
+      <div class="sub">Input targeted winning fields manually, or load from the Interactive Pad above.</div>
+      <label>Target Winning Draw Numbers</label>
+      <div class="boxes" id="checkerDrawBoxes" style="margin-bottom:6px;"><input class="numbox " type="number" min="1" max="52" data-drawpos="0"><input class="numbox " type="number" min="1" max="52" data-drawpos="1"><input class="numbox " type="number" min="1" max="52" data-drawpos="2"><input class="numbox " type="number" min="1" max="52" data-drawpos="3"><input class="numbox " type="number" min="1" max="52" data-drawpos="4"><input class="numbox " type="number" min="1" max="52" data-drawpos="5"><input class="numbox bonus-slot" type="number" min="1" max="52" data-drawbonus="0" placeholder="Bns"></div>
+      <button class="gen-btn" id="checkBtn" style="margin-top:10px;">SCAN GENERATED BATCH</button>
+      
+      <div class="checker-result hidden" id="checkerResultBox">
+        <div class="big" id="checkerBig">0 / 0 Winning Lines</div>
+        <div class="label" id="checkerVerdict">Scanning Analysis</div>
+        <div id="checkerTiers" style="margin-top:12px; text-align:left; font-size:12px; font-family:&#39;Space Mono&#39;; line-height:2;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row-metrics-toggle-bar">
+        <h2>Generated Set Array Output</h2>
+        <button class="util-btn" id="toggleMetricsBtn" style="flex:none; width:auto; padding:6px 14px; font-size:11px; color:var(--cyan); border-color:var(--cyan);">
+          📊 Hide Line Profiles
+        </button>
+      </div>
+      <div class="hl-toggle-bar">
+        <button class="hl-lower-btn" data-hl="lower">Lower Half</button>
+        <button class="hl-upper-btn" data-hl="upper">Upper Half</button>
+        <button class="hl-odd-btn" data-hl="odd">Odd Numbers</button>
+        <button class="hl-even-btn" data-hl="even">Even Numbers</button>
+      </div>
+      <div class="results" id="results"><div class="sub">Run generation initialization to see values.</div></div>
+      <button class="util-btn" id="clearResetBtn" style="margin-top:12px; border-color:var(--danger); color:var(--danger);">🗑 Clear &amp; Reset All Generated Sets</button>
+    </div>
+
+    <div class="card" id="pnlCard">
+      <h2>Profit &amp; Loss Report</h2>
+      <div class="sub">Estimated using standard SA average dividend values — actual payouts vary by draw and rollover. Run the Batch Draw Match Engine above first, then calculate here.</div>
+      <div class="pnl-inputs">
+        <label>Cost per line (R)</label><input type="text" inputmode="numeric" id="pnlCostPerLine" value="5">
+        <button class="util-btn good" id="pnlCalcBtn" style="flex:none; width:auto; padding:8px 16px;">Calculate P&amp;L</button>
+      </div>
+      <div class="pnl-summary" id="pnlSummary"></div>
+      <svg id="pnlChart" width="100%" height="155" style="display:block;"></svg>
+    </div>
+  </div>
+
+  <div id="tab-picker" class="hidden">
+    <div class="card">
+      <h2>Number Picker — Budget Planner</h2>
+      <div class="sub">Tap numbers directly on each game's grid to hand-pick a line, set how many extra lines to auto-generate using that game's Band Configuration, then generate everything in one go. Each run is timestamped below so you can track what you picked and when.</div>
+      <div id="pickerRows" data-built="1">
+    <div class="hl-toggle-bar" id="pickerTabBar">
+      <button data-ptab="lottoGroup" class="on">Lotto Games</button>
+      <button data-ptab="daily">Daily Lotto</button>
+      <button data-ptab="powerball">Powerball</button>
+    </div>
+
+    <div id="pickerPanel-lottoGroup" class="picker-panel">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a line (6 numbers + 1 bonus) — one grid, shared by Lotto / Lotto Plus 1 / Lotto Max. Tick which games it should apply to below.</label>
+      <div class="pad-board"><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="1">1</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="2">2</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="3">3</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="4">4</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="5">5</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="6">6</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="7">7</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="8">8</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="9">9</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="10">10</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="11">11</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="12">12</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="13">13</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="14">14</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="15">15</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="16">16</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="17">17</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="18">18</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="19">19</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="20">20</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="21">21</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="22">22</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="23">23</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="24">24</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="25">25</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="26">26</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="27">27</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="28">28</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="29">29</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="30">30</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="31">31</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="32">32</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="33">33</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="34">34</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="35">35</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="36">36</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="37">37</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="38">38</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="39">39</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="40">40</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="41">41</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="42">42</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="43">43</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="44">44</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="45">45</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="46">46</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="47">47</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="48">48</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="49">49</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="50">50</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="51">51</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="main" data-picker-num="52">52</div></div>
+      <label style="font-size:11px; color:var(--sub); display:block; margin-top:8px;">Bonus Ball Pool (1–52)</label>
+      <div class="pad-board"><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="1">1</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="2">2</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="3">3</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="4">4</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="5">5</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="6">6</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="7">7</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="8">8</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="9">9</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="10">10</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="11">11</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="12">12</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="13">13</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="14">14</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="15">15</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="16">16</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="17">17</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="18">18</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="19">19</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="20">20</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="21">21</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="22">22</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="23">23</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="24">24</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="25">25</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="26">26</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="27">27</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="28">28</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="29">29</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="30">30</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="31">31</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="32">32</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="33">33</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="34">34</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="35">35</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="36">36</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="37">37</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="38">38</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="39">39</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="40">40</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="41">41</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="42">42</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="43">43</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="44">44</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="45">45</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="46">46</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="47">47</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="48">48</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="49">49</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="50">50</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="51">51</div><div class="pad-cell" data-picker-group="lottoGroup" data-picker-type="bonus" data-picker-num="52">52</div></div>
+      <div class="pad-counter">
+        <span id="pickerCount-lottoGroup">Mains: <strong>0 / 6</strong> | Bonus: <strong>0 / 1</strong></span>
+      </div>
+      <div style="display:flex; gap:14px; margin:10px 0; font-size:12px; font-family:&#39;Space Mono&#39;;">
+        <label><input type="checkbox" class="apply-to-check" data-apply="lotto" checked="" style="accent-color:var(--gold);"> Lotto</label>
+        <label><input type="checkbox" class="apply-to-check" data-apply="plus1" checked="" style="accent-color:var(--gold);"> Plus 1</label>
+        <label><input type="checkbox" class="apply-to-check" data-apply="max5" checked="" style="accent-color:var(--gold);"> Max</label>
+      </div>
+      <button class="util-btn good picker-add-manual" data-group="lottoGroup" style="flex:none; width:auto; padding:6px 12px; font-size:11px;">+ Add This Line</button>
+      <div style="margin-top:14px; padding-top:10px; border-top:1px dashed var(--line);">
+        
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="lotto" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">LOTTO</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="lotto" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-lotto"></div>
+  
+        
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="plus1" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">LOTTO PLUS 1</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="plus1" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-plus1"></div>
+  
+        
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="max5" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">LOTTO MAX</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="max5" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-max5"></div>
+  
+      </div>
+    </div>
+
+    <div id="pickerPanel-daily" class="picker-panel hidden">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a Daily Lotto line (5 numbers).</label>
+      <div class="pad-board"><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="1">1</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="2">2</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="3">3</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="4">4</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="5">5</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="6">6</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="7">7</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="8">8</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="9">9</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="10">10</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="11">11</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="12">12</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="13">13</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="14">14</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="15">15</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="16">16</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="17">17</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="18">18</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="19">19</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="20">20</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="21">21</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="22">22</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="23">23</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="24">24</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="25">25</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="26">26</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="27">27</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="28">28</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="29">29</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="30">30</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="31">31</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="32">32</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="33">33</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="34">34</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="35">35</div><div class="pad-cell" data-picker-group="daily" data-picker-type="main" data-picker-num="36">36</div></div>
+      <div class="pad-counter"><span id="pickerCount-daily">Mains: <strong>0 / 5</strong></span></div>
+      <button class="util-btn good picker-add-manual" data-group="daily" style="flex:none; width:auto; padding:6px 12px; font-size:11px; margin:10px 0;">+ Add This Line</button>
+      <div style="padding-top:10px; border-top:1px dashed var(--line);">
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="daily" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">DAILY LOTTO</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="daily" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-daily"></div>
+  </div>
+    </div>
+
+    <div id="pickerPanel-powerball" class="picker-panel hidden">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a Powerball line (5 numbers + 1 PB). Powerball Plus's own PB number is filled automatically since it's drawn separately.</label>
+      <div class="pad-board"><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="1">1</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="2">2</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="3">3</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="4">4</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="5">5</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="6">6</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="7">7</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="8">8</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="9">9</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="10">10</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="11">11</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="12">12</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="13">13</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="14">14</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="15">15</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="16">16</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="17">17</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="18">18</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="19">19</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="20">20</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="21">21</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="22">22</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="23">23</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="24">24</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="25">25</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="26">26</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="27">27</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="28">28</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="29">29</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="30">30</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="31">31</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="32">32</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="33">33</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="34">34</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="35">35</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="36">36</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="37">37</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="38">38</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="39">39</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="40">40</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="41">41</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="42">42</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="43">43</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="44">44</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="45">45</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="46">46</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="47">47</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="48">48</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="49">49</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="main" data-picker-num="50">50</div></div>
+      <label style="font-size:11px; color:var(--sub); display:block; margin-top:8px;">Powerball Pool (1–20)</label>
+      <div class="pad-board"><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="1">1</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="2">2</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="3">3</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="4">4</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="5">5</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="6">6</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="7">7</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="8">8</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="9">9</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="10">10</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="11">11</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="12">12</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="13">13</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="14">14</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="15">15</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="16">16</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="17">17</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="18">18</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="19">19</div><div class="pad-cell" data-picker-group="powerball" data-picker-type="bonus" data-picker-num="20">20</div></div>
+      <div class="pad-counter"><span id="pickerCount-powerball">Mains: <strong>0 / 5</strong> | PB: <strong>0 / 1</strong></span></div>
+      <button class="util-btn good picker-add-manual" data-group="powerball" style="flex:none; width:auto; padding:6px 12px; font-size:11px; margin:10px 0;">+ Add This Line</button>
+      <div style="padding-top:10px; border-top:1px dashed var(--line);">
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="powerball" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">POWERBALL / PLUS</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="powerball" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-powerball"></div>
+  </div>
+    </div>
+  </div>
+      <button class="gen-btn" id="pickerGenBtn" style="margin-top:14px;">GENERATE MY BUDGET LIST</button>
+    </div>
+    <div id="pickerResults"></div>
+    <div class="card" id="pickerHistoryCard">
+      <h2>Run History</h2>
+      <div class="sub">Every generation run, timestamped, so you can see what you picked per game over time.</div>
+      <div id="pickerHistoryLog" style="font-family:&#39;Space Mono&#39;; font-size:11.5px; color:var(--sub);">No runs yet.</div>
+    </div>
+  </div>
+
+  <div id="tab-data" class="hidden">
+    <div class="card">
+      <h2>Last 6 Draws Layer</h2>
+      <div class="sub">Toggle the security padlock to manually adjust background parameters.</div>
+      <div id="drawInputs"><div class="numbox-row">
+      <div class="dlabel">Draw 1</div>
+      <button class="lock-toggle " data-row="0">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="0" data-slot="main" value="3" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="1" data-slot="main" value="11" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="2" data-slot="main" value="19" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="3" data-slot="main" value="24" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="4" data-slot="main" value="38" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="0" data-pos="5" data-slot="main" value="47" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="0" data-pos="6" data-slot="bonus" value="51" disabled=""></div>
+    </div><div class="numbox-row">
+      <div class="dlabel">Draw 2</div>
+      <button class="lock-toggle " data-row="1">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="0" data-slot="main" value="7" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="1" data-slot="main" value="11" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="2" data-slot="main" value="22" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="3" data-slot="main" value="29" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="4" data-slot="main" value="33" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="1" data-pos="5" data-slot="main" value="41" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="1" data-pos="6" data-slot="bonus" value="12" disabled=""></div>
+    </div><div class="numbox-row">
+      <div class="dlabel">Draw 3</div>
+      <button class="lock-toggle " data-row="2">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="0" data-slot="main" value="2" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="1" data-slot="main" value="15" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="2" data-slot="main" value="19" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="3" data-slot="main" value="26" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="4" data-slot="main" value="40" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="2" data-pos="5" data-slot="main" value="52" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="2" data-pos="6" data-slot="bonus" value="10" disabled=""></div>
+    </div><div class="numbox-row">
+      <div class="dlabel">Draw 4</div>
+      <button class="lock-toggle " data-row="3">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="0" data-slot="main" value="9" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="1" data-slot="main" value="11" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="2" data-slot="main" value="17" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="3" data-slot="main" value="24" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="4" data-slot="main" value="36" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="3" data-pos="5" data-slot="main" value="45" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="3" data-pos="6" data-slot="bonus" value="1" disabled=""></div>
+    </div><div class="numbox-row">
+      <div class="dlabel">Draw 5</div>
+      <button class="lock-toggle " data-row="4">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="0" data-slot="main" value="5" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="1" data-slot="main" value="19" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="2" data-slot="main" value="23" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="3" data-slot="main" value="31" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="4" data-slot="main" value="38" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="4" data-pos="5" data-slot="main" value="49" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="4" data-pos="6" data-slot="bonus" value="40" disabled=""></div>
+    </div><div class="numbox-row">
+      <div class="dlabel">Draw 6</div>
+      <button class="lock-toggle " data-row="5">🔒</button>
+      <div class="boxes"><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="0" data-slot="main" value="11" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="1" data-slot="main" value="14" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="2" data-slot="main" value="28" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="3" data-slot="main" value="33" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="4" data-slot="main" value="42" disabled=""><input class="numbox " type="number" min="1" max="52" data-row="5" data-pos="5" data-slot="main" value="50" disabled=""><input class="numbox bonus-slot" type="number" min="1" max="52" data-row="5" data-pos="6" data-slot="bonus" value="28" disabled=""></div>
+    </div></div>
+      <div class="util-row">
+        <button class="util-btn good" id="applyData">Apply &amp; Save Layout</button>
+        <button class="util-btn warn" id="clearData">Clear Arrays</button>
+      </div>
+      <label class="file-btn" for="csvUpload">📁 Upload CSV (Draw sequences comma separated)</label>
+      <input type="file" id="csvUpload" accept=".csv,.txt">
+      <div class="util-row">
+        <button class="util-btn" id="loadSample">Restore Defaults</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Unselected Matrix Highlight Engine (1-52)</h2>
+      <div class="sub">
+        Real-time tracking layout. <br>
+        <span style="color:var(--cyan); font-weight:bold;">● Bordered Cyan</span> = Unselected. 
+        <span>● Standard Dark Background</span> = Unique.
+        <span style="color:var(--gold); font-weight:bold;">● Solid Block</span> = Repeated.
+      </div>
+      <div class="matrix-grid" id="matrixContainer"><div class="matrix-cell pool-unselected">1</div><div class="matrix-cell pool-unique">2</div><div class="matrix-cell pool-unique">3</div><div class="matrix-cell pool-unselected">4</div><div class="matrix-cell pool-unique">5</div><div class="matrix-cell pool-unselected">6</div><div class="matrix-cell pool-unique">7</div><div class="matrix-cell pool-unselected">8</div><div class="matrix-cell pool-unique">9</div><div class="matrix-cell pool-unselected">10</div><div class="matrix-cell pool-repeated">11</div><div class="matrix-cell pool-unselected">12</div><div class="matrix-cell pool-unselected">13</div><div class="matrix-cell pool-unique">14</div><div class="matrix-cell pool-unique">15</div><div class="matrix-cell pool-unselected">16</div><div class="matrix-cell pool-unique">17</div><div class="matrix-cell pool-unselected">18</div><div class="matrix-cell pool-repeated">19</div><div class="matrix-cell pool-unselected">20</div><div class="matrix-cell pool-unselected">21</div><div class="matrix-cell pool-unique">22</div><div class="matrix-cell pool-unique">23</div><div class="matrix-cell pool-repeated">24</div><div class="matrix-cell pool-unselected">25</div><div class="matrix-cell pool-unique">26</div><div class="matrix-cell pool-unselected">27</div><div class="matrix-cell pool-unique">28</div><div class="matrix-cell pool-unique">29</div><div class="matrix-cell pool-unselected">30</div><div class="matrix-cell pool-unique">31</div><div class="matrix-cell pool-unselected">32</div><div class="matrix-cell pool-repeated">33</div><div class="matrix-cell pool-unselected">34</div><div class="matrix-cell pool-unselected">35</div><div class="matrix-cell pool-unique">36</div><div class="matrix-cell pool-unselected">37</div><div class="matrix-cell pool-repeated">38</div><div class="matrix-cell pool-unselected">39</div><div class="matrix-cell pool-unique">40</div><div class="matrix-cell pool-unique">41</div><div class="matrix-cell pool-unique">42</div><div class="matrix-cell pool-unselected">43</div><div class="matrix-cell pool-unselected">44</div><div class="matrix-cell pool-unique">45</div><div class="matrix-cell pool-unselected">46</div><div class="matrix-cell pool-unique">47</div><div class="matrix-cell pool-unselected">48</div><div class="matrix-cell pool-unique">49</div><div class="matrix-cell pool-unique">50</div><div class="matrix-cell pool-unselected">51</div><div class="matrix-cell pool-unique">52</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Pool Layer Snapshot</h2>
+      <div class="sub">Active layout proportions.</div>
+      <div class="stat-bar" id="poolStats">
+    <div class="stat"><div class="v">24</div><div class="l">Unselected (Cyan)</div></div>
+    <div class="stat"><div class="v">23</div><div class="l">Unique Pool</div></div>
+    <div class="stat"><div class="v">5</div><div class="l">Repeated Pool</div></div>
+  </div>
+    </div>
+  </div>
+
+  <div id="tab-about" class="hidden">
+    <div class="card">
+      <h2>Algorithmic Logic Matrix</h2>
+      <div class="sub" style="font-size:13px; line-height:1.7;">
+        <strong style="color:var(--gold)">My Method (Band + Odd/Even + Dynamic Anchor):</strong> Distributes picks across range bands, alternates odd/even parity slot-by-slot, and shifts weightings near-miss anchor behavior (±1) to optimize performance dynamically. <br><br>
+        <strong style="color:var(--cyan)">Quick Pick (Pool Split):</strong> Recomposes sets by segmenting structures based on strict historical boundary definitions (Repeated vs Unique vs Unrepresented fields).
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer><span class="pulse-dot"></span>DevSoft Pulse · Standalone Production Model</footer>
+
+<script>
+// ---------- APPLICATION CONTROL MATRIX STATE ----------
+let currentMethod = 'my';
+let currentBatch = 50;
+let drawHistory = [];
+let generatedSetsGlobal = [];
+let showLineMetrics = true;
+
+// Interactive Game Pad Selection States
+let padSelectedMains = [];
+let padSelectedBonus = [];
+
+const sampleDraws = {
+  52: [[3,11,19,24,38,47],[7,11,22,29,33,41],[2,15,19,26,40,52],[9,11,17,24,36,45],[5,19,23,31,38,49],[11,14,28,33,42,50]],
+  50: [[4,12,18,25,37],[8,12,21,29,33],[3,16,18,27,41],[9,12,19,24,36],[6,18,22,31,38],[12,15,27,33,42]],
+  36: [[2,9,14,21,30],[5,11,17,24,33],[3,8,19,26,31],[6,12,18,27,34],[4,10,16,22,29],[7,13,20,25,36]]
+};
+
+// Approximate AVERAGE South African dividend values (Rand) per tier — actual payouts vary weekly
+// with rollovers and ticket sales. Used only to estimate P&L trends, not exact winnings.
+const PRIZE_VALUES = {
+  lotto: { "Div 1: 6 Main Numbers":2000000, "Div 2: 5 Main + Bonus":100000, "Div 3: 5 Main Numbers":3000,
+    "Div 4: 4 Main + Bonus":2000, "Div 5: 4 Main Numbers":120, "Div 6: 3 Main + Bonus":100,
+    "Div 7: 3 Main Numbers":50, "Div 8: 2 Main + Bonus":20 },
+  powerball: { "Div 1: 5 Main + PB":3000000, "Div 2: 5 Main Numbers":150000, "Div 3: 4 Main + PB":5000,
+    "Div 4: 4 Main Numbers":500, "Div 5: 3 Main + PB":100, "Div 6: 3 Main Numbers":50,
+    "Div 7: 2 Main + PB":20, "Div 8: 1 Main + PB":20, "Div 9: PB Only":10 },
+  daily: { "Div 1: 5 Main Numbers":20000, "Div 2: 4 Main Numbers":500, "Div 3: 3 Main Numbers":25, "Div 4: 2 Main Numbers":5 }
+};
+function prizeValuesFor(key){ return PRIZE_VALUES[key] || PRIZE_VALUES[PRIZE_TIERS[key] ? key : 'lotto'] || PRIZE_VALUES.lotto; }
+
+const PRIZE_TIERS = {
+  lotto: [
+    {m:6, b:false, label:"Div 1: 6 Main Numbers"}, {m:5, b:true, label:"Div 2: 5 Main + Bonus"},
+    {m:5, b:false, label:"Div 3: 5 Main Numbers"}, {m:4, b:true, label:"Div 4: 4 Main + Bonus"},
+    {m:4, b:false, label:"Div 5: 4 Main Numbers"}, {m:3, b:true, label:"Div 6: 3 Main + Bonus"},
+    {m:3, b:false, label:"Div 7: 3 Main Numbers"}, {m:2, b:true, label:"Div 8: 2 Main + Bonus"}
+  ],
+  powerball: [
+    {m:5, b:true, label:"Div 1: 5 Main + PB"}, {m:5, b:false, label:"Div 2: 5 Main Numbers"},
+    {m:4, b:true, label:"Div 3: 4 Main + PB"}, {m:4, b:false, label:"Div 4: 4 Main Numbers"},
+    {m:3, b:true, label:"Div 5: 3 Main + PB"}, {m:3, b:false, label:"Div 6: 3 Main Numbers"},
+    {m:2, b:true, label:"Div 7: 2 Main + PB"}, {m:1, b:true, label:"Div 8: 1 Main + PB"}, {m:0, b:true, label:"Div 9: PB Only"}
+  ],
+  daily: [
+    {m:5, b:false, label:"Div 1: 5 Main Numbers"}, {m:4, b:false, label:"Div 2: 4 Main Numbers"},
+    {m:3, b:false, label:"Div 3: 3 Main Numbers"}, {m:2, b:false, label:"Div 4: 2 Main Numbers"}
+  ]
+};
+
+function getGameConfig(){
+  const sel = document.getElementById('gameSelect');
+  const opt = sel.options[sel.selectedIndex];
+  const bonusMode = opt.dataset.bonusmode;
+  return {
+    range: parseInt(opt.dataset.range),
+    main: parseInt(opt.dataset.main),
+    bonusMode: bonusMode,
+    bonus: bonusMode === 'none' ? 0 : (bonusMode === 'dual' ? 2 : 1),
+    bonusRange: parseInt(opt.dataset.bonusrange),
+    key: opt.value
+  };
+}
+
+// ---------- GLOBAL PALETTE ENGINE ----------
+document.getElementById('themeSelect').addEventListener('change', (e) => {
+  document.body.className = '';
+  if(e.target.value !== 'default') { document.body.classList.add('theme-' + e.target.value); }
+});
+
+// ---------- NAVIGATION MATRIX CONNECTOR ----------
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    ['generate','picker','data','about'].forEach(name=>{
+      document.getElementById('tab-'+name).classList.toggle('hidden', name!==t.dataset.tab);
+    });
+    if(t.dataset.tab==='data') { renderDrawInputs(); }
+  });
+});
+
+// ---------- CALCULATION VECTOR SETTERS ----------
+document.getElementById('btnMy').addEventListener('click', ()=>setMethod('my'));
+document.getElementById('btnPool').addEventListener('click', ()=>setMethod('pool'));
+function setMethod(m){
+  currentMethod = m;
+  document.getElementById('btnMy').classList.toggle('active', m==='my');
+  document.getElementById('btnPool').classList.toggle('active', m==='pool');
+  renderBandConfig();
+}
+
+// ---------- ARRAY QUANTITY MATRIX GRID CONFIGS ----------
+document.querySelectorAll('.batch-grid button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.batch-grid button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    const cb = document.getElementById('customBatch');
+    if(b.dataset.b==='custom'){
+      cb.classList.remove('hidden'); currentBatch = parseInt(cb.value)||20;
+    } else {
+      cb.classList.add('hidden'); currentBatch = parseInt(b.dataset.b);
+    }
+  });
+});
+document.getElementById('customBatch').addEventListener('input', (e)=>{
+  currentBatch = parseInt(e.target.value)||20;
+});
+
+// ---------- LAYOUT PARSING MATRICES ----------
+let drawLocked = [true,true,true,true,true,true];
+let dailySession = 'A';
+let dailyHistoryB = [];
+
+function slotMeta(cfg){
+  const slots = [];
+  for(let i=0;i<cfg.main;i++) slots.push({type:'main', max:cfg.range});
+  if(cfg.bonusMode==='single'){
+    while(slots.length<6) slots.push({type:'hidden', max:cfg.range});
+    slots.push({type:'bonus', max:cfg.bonusRange});
+  } else if(cfg.bonusMode==='dual'){
+    slots.push({type:'bonus', max:cfg.bonusRange});
+    slots.push({type:'pb2', max:cfg.bonusRange});
+  } else {
+    while(slots.length<7) slots.push({type:'hidden', max:cfg.range});
+  }
+  while(slots.length<7) slots.push({type:'hidden', max:cfg.range});
+  return slots.slice(0,7);
+}
+
+function renderDrawInputs(){
+  const cfg = getGameConfig();
+  if(drawHistory.length===0) loadSample();
+  const container = document.getElementById('drawInputs');
+  container.innerHTML = '';
+
+  if(cfg.key === 'daily'){
+    const toggle = document.createElement('div');
+    toggle.className = 'session-toggle';
+    toggle.innerHTML = `
+      <button data-s="A" class="${dailySession==='A'?'active':''}">Draw 1 (Midday)</button>
+      <button data-s="B" class="${dailySession==='B'?'active':''}">Draw 2 (Evening)</button>
+    `;
+    container.appendChild(toggle);
+    toggle.querySelectorAll('button').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        syncDrawHistoryFromInputs();
+        dailySession = b.dataset.s;
+        renderDrawInputs();
+      });
+    });
+  }
+
+  const slots = slotMeta(cfg);
+  const activeHistory = (cfg.key==='daily' && dailySession==='B') ? dailyHistoryB : drawHistory;
+
+  for(let i=0;i<6;i++){
+    const row = document.createElement('div');
+    row.className = 'numbox-row';
+    const locked = drawLocked[i];
+    const rowData = activeHistory[i] || {main:[], bonus:[]};
+    let boxesHtml = '';
+    slots.forEach((slot, pos)=>{
+      if(slot.type === 'hidden'){ boxesHtml += `<div class="numbox slot-hidden"></div>`; return; }
+      let val = '';
+      if(slot.type === 'main'){ val = rowData.main[pos] !== undefined ? rowData.main[pos] : ''; }
+      else if(slot.type === 'bonus'){ val = rowData.bonus[0] !== undefined ? rowData.bonus[0] : ''; }
+      else if(slot.type === 'pb2'){ val = rowData.bonus[1] !== undefined ? rowData.bonus[1] : ''; }
+      const cls = slot.type==='bonus' ? 'bonus-slot' : (slot.type==='pb2' ? 'pb2-slot' : '');
+      boxesHtml += `<input class="numbox ${cls}" type="number" min="1" max="${slot.max}" data-row="${i}" data-pos="${pos}" data-slot="${slot.type}" value="${val}" ${locked?'disabled':''}>`;
+    });
+    row.innerHTML = `
+      <div class="dlabel">Draw ${i+1}</div>
+      <button class="lock-toggle ${locked?'':'unlocked'}" data-row="${i}">${locked?'🔒':'✏️'}</button>
+      <div class="boxes">${boxesHtml}</div>
+    `;
+    container.appendChild(row);
+  }
+  container.querySelectorAll('.lock-toggle').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const idx = parseInt(btn.dataset.row);
+      drawLocked[idx] = !drawLocked[idx];
+      syncDrawHistoryFromInputs();
+      renderDrawInputs();
+    });
+  });
+  updatePoolStats();
+  renderMatrixGrid();
+}
+
+function syncDrawHistoryFromInputs(){
+  const container = document.getElementById('drawInputs');
+  if(!container) return;
+  const cfg = getGameConfig();
+  const targetHistory = (cfg.key==='daily' && dailySession==='B') ? dailyHistoryB : drawHistory;
+  for(let i=0;i<6;i++){
+    const inputs = container.querySelectorAll(`input[data-row="${i}"]`);
+    if(inputs.length===0) continue;
+    const main = []; const bonus = [];
+    inputs.forEach(inp=>{
+      const v = parseInt(inp.value); if(isNaN(v)) return;
+      if(inp.dataset.slot==='main') main.push(v);
+      else if(inp.dataset.slot==='bonus') bonus[0] = v;
+      else if(inp.dataset.slot==='pb2') bonus[1] = v;
+    });
+    targetHistory[i] = {main, bonus};
+  }
+}
+
+function renderMatrixGrid() {
+  const container = document.getElementById('matrixContainer');
+  if(!container) return; container.innerHTML = '';
+  const cfg = getGameConfig();
+  const { unselectedPool, uniquePool, repeatedPool } = analyzePool(cfg);
+  
+  for(let i=1; i<=52; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'matrix-cell'; cell.textContent = i;
+    if (i > cfg.range) { cell.style.display = 'none'; }
+    else if (repeatedPool.includes(i)) { cell.classList.add('pool-repeated'); }
+    else if (unselectedPool.includes(i)) { cell.classList.add('pool-unselected'); }
+    else { cell.classList.add('pool-unique'); }
+    container.appendChild(cell);
+  }
+}
+
+function loadSample(){
+  const cfg = getGameConfig();
+  const base = sampleDraws[cfg.range] || sampleDraws[52];
+  drawHistory = base.map(d=>{
+    const main = d.slice(0,cfg.main);
+    let bonus = [];
+    if(cfg.bonusMode==='single'){ bonus = [randInt(1,cfg.bonusRange)]; }
+    else if(cfg.bonusMode==='dual'){ bonus = [randInt(1,cfg.bonusRange), randInt(1,cfg.bonusRange)]; }
+    return {main, bonus};
+  });
+  dailyHistoryB = drawHistory.map(r=>({main:[...r.main], bonus:[...r.bonus]}));
+}
+
+document.getElementById('loadSample').addEventListener('click', ()=>{ loadSample(); renderDrawInputs(); });
+document.getElementById('clearData').addEventListener('click', ()=>{
+  const cfg = getGameConfig();
+  const empty = ()=>({main:[], bonus:[]});
+  if(cfg.key==='daily' && dailySession==='B'){ dailyHistoryB = [empty(),empty(),empty(),empty(),empty(),empty()]; }
+  else { drawHistory = [empty(),empty(),empty(),empty(),empty(),empty()]; }
+  drawLocked = [false,false,false,false,false,false]; renderDrawInputs();
+});
+document.getElementById('applyData').addEventListener('click', ()=>{
+  syncDrawHistoryFromInputs(); updatePoolStats(); renderMatrixGrid(); alert('Background parameters synchronized.');
+});
+
+document.getElementById('csvUpload').addEventListener('change', (e)=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (evt)=>{
+    const lines = evt.target.result.split('\n').map(l=>l.trim()).filter(l=>l.length>0);
+    const cfg = getGameConfig();
+    const parsed = lines.slice(0,6).map(line=>{
+      const nums = line.split(',').map(s=>parseInt(s.trim())).filter(n=>!isNaN(n));
+      return { main: nums.slice(0,cfg.main), bonus: nums.slice(cfg.main, cfg.main + (cfg.bonusMode==='dual'?2:cfg.bonusMode==='single'?1:0)) };
+    });
+    if(cfg.key==='daily' && dailySession==='B'){ dailyHistoryB = parsed; } else { drawHistory = parsed; }
+    renderDrawInputs();
+  };
+  reader.readAsText(file);
+});
+
+function updatePoolStats(){
+  const cfg = getGameConfig();
+  const {unselectedPool, uniquePool, repeatedPool} = analyzePool(cfg);
+  document.getElementById('poolStats').innerHTML = `
+    <div class="stat"><div class="v">${unselectedPool.length}</div><div class="l">Unselected (Cyan)</div></div>
+    <div class="stat"><div class="v">${uniquePool.length}</div><div class="l">Unique Pool</div></div>
+    <div class="stat"><div class="v">${repeatedPool.length}</div><div class="l">Repeated Pool</div></div>
+  `;
+}
+
+function analyzePool(cfg){
+  const freq = {}; const historySet = new Set();
+  const activeHistory = (cfg.key==='daily' && dailySession==='B') ? dailyHistoryB : drawHistory;
+  activeHistory.forEach(draw=>{ (draw.main||[]).forEach(n=>{ if(n >= 1 && n <= cfg.range) { freq[n] = (freq[n]||0)+1; historySet.add(n); } }); });
+  const unselectedPool = [];
+  for(let i=1; i<=cfg.range; i++) { if(!historySet.has(i)) unselectedPool.push(i); }
+  const uniquePool = Object.keys(freq).filter(n=>freq[n]===1).map(Number);
+  const repeatedPool = Object.keys(freq).filter(n=>freq[n]>1).map(Number);
+  return {unselectedPool, uniquePool, repeatedPool, freq};
+}
+
+function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+// ---------- INTERACTIVE GAME PAD ----------
+function renderInteractiveGamePad(){
+  const cfg = getGameConfig();
+  const mainBoard = document.getElementById('padMainBoard');
+  const bonusBoard = document.getElementById('padBonusBoard');
+  const bonusSection = document.getElementById('padBonusSection');
+  const sharedPool = cfg.bonusMode === 'single' && cfg.bonusRange === cfg.range;
+
+  mainBoard.innerHTML = '';
+  bonusBoard.innerHTML = '';
+  padSelectedMains = [];
+  padSelectedBonus = [];
+  updatePadCounterDisplay();
+
+  document.getElementById('padMainLabel').textContent = sharedPool
+    ? `Pick ${cfg.main + 1} Numbers — the last one you tap becomes the Bonus (1–${cfg.range})`
+    : `Main Pool Array (1–${cfg.range})`;
+
+  for(let i = 1; i <= cfg.range; i++){
+    const cell = document.createElement('div');
+    cell.className = 'pad-cell';
+    cell.textContent = i;
+    cell.addEventListener('click', () => sharedPool ? toggleSharedPadCell(i, cell, cfg) : togglePadCell('main', i, cell, cfg));
+    mainBoard.appendChild(cell);
+  }
+
+  if(cfg.bonusMode !== 'none' && !sharedPool) {
+    bonusSection.classList.remove('hidden');
+    document.getElementById('padBonusLabel').textContent = cfg.bonusMode === 'dual' ? 'Powerball Multi-Tier Pool Array (1–' + cfg.bonusRange + ')' : 'Bonus Ball Pool Array (1–' + cfg.bonusRange + ')';
+    for(let i = 1; i <= cfg.bonusRange; i++){
+      const cell = document.createElement('div');
+      cell.className = 'pad-cell';
+      cell.textContent = i;
+      cell.addEventListener('click', () => togglePadCell('bonus', i, cell, cfg));
+      bonusBoard.appendChild(cell);
+    }
+  } else {
+    bonusSection.classList.add('hidden');
+  }
+}
+
+// Shared-pool tap logic: numbers are tapped in order; the first cfg.main taps are mains,
+// the next tap (the (main+1)th) becomes the bonus. Untapping renumbers correctly.
+function toggleSharedPadCell(num, element, cfg){
+  const total = cfg.main + 1;
+  const allSelected = [...padSelectedMains, ...padSelectedBonus];
+  const idx = allSelected.indexOf(num);
+
+  if(idx > -1){
+    // remove and rebuild main/bonus split from the remaining tap order
+    allSelected.splice(idx, 1);
+    element.classList.remove('sel-active','bonus-active');
+  } else {
+    if(allSelected.length >= total){ alert(`Capped at ${total} numbers (${cfg.main} main + 1 bonus).`); return; }
+    allSelected.push(num);
+  }
+
+  padSelectedMains = allSelected.slice(0, cfg.main);
+  padSelectedBonus = allSelected.slice(cfg.main);
+
+  // Repaint all cells to reflect current main/bonus split
+  document.querySelectorAll('#padMainBoard .pad-cell').forEach(c=>{
+    const n = parseInt(c.textContent);
+    c.classList.toggle('sel-active', padSelectedMains.includes(n));
+    c.classList.toggle('bonus-active', padSelectedBonus.includes(n));
+  });
+  updatePadCounterDisplay();
+}
+
+function togglePadCell(type, num, element, cfg) {
+  if(type === 'main') {
+    const idx = padSelectedMains.indexOf(num);
+    if(idx > -1) {
+      padSelectedMains.splice(idx, 1);
+      element.classList.remove('sel-active');
+    } else {
+      if(padSelectedMains.length >= cfg.main) {
+        alert(`Main choices capped exactly at ${cfg.main} lines for this profile configuration.`);
+        return;
+      }
+      padSelectedMains.push(num);
+      element.classList.add('sel-active');
+    }
+  } else {
+    const idx = padSelectedBonus.indexOf(num);
+    if(idx > -1) {
+      padSelectedBonus.splice(idx, 1);
+      element.classList.remove('bonus-active');
+    } else {
+      if(padSelectedBonus.length >= cfg.bonus) {
+        alert(`Bonus configurations capped at ${cfg.bonus} cells for this profile layout.`);
+        return;
+      }
+      padSelectedBonus.push(num);
+      element.classList.add('bonus-active');
+    }
+  }
+  updatePadCounterDisplay();
+}
+
+function updatePadCounterDisplay() {
+  const cfg = getGameConfig();
+  const sharedPool = cfg.bonusMode === 'single' && cfg.bonusRange === cfg.range;
+  const countSpan = document.getElementById('padSelectionCounts');
+  if(sharedPool){
+    countSpan.innerHTML = `Total: <strong>${padSelectedMains.length + padSelectedBonus.length} / ${cfg.main + 1}</strong> (Main: ${padSelectedMains.length}, Bonus: ${padSelectedBonus.length})`;
+  } else {
+    countSpan.innerHTML = `Mains: <strong>${padSelectedMains.length} / ${cfg.main}</strong> | Bonus: <strong>${padSelectedBonus.length} / ${cfg.bonus}</strong>`;
+  }
+}
+
+document.getElementById('padExportBtn').addEventListener('click', () => {
+  const cfg = getGameConfig();
+  if(padSelectedMains.length < cfg.main) {
+    alert(`Please select a full set of ${cfg.main} main numbers on the pad first.`);
+    return;
+  }
+  
+  const mainInputs = document.querySelectorAll('[data-drawpos]');
+  padSelectedMains.sort((a,b)=>a-b).forEach((val, i) => {
+    if(mainInputs[i]) mainInputs[i].value = val;
+  });
+
+  const bonusInputs = document.querySelectorAll('[data-drawbonus]');
+  padSelectedBonus.forEach((val, i) => {
+    if(bonusInputs[i]) bonusInputs[i].value = val;
+  });
+
+  alert('Interactive selections transferred to Target Match inputs successfully.');
+});
+
+// ---------- MANUAL BAND PROFILE SLOTS ----------
+let manualBands = [];
+let blockCyclePointers = [];
+let bandConfigsByGame = {};
+let lastGameKey = null;
+
+function defaultBandsFor(cfg){
+  const auto = getBands(cfg.range);
+  return auto.map((b,i)=>({
+    start:b[0], end:b[1], odd: i%2===0?1:0, even: i%2===0?0:1, any:0,
+    block:[b[0], b[0]+1, b[0]+2, b[0]+3, b[0]+4].map(n=>Math.min(n, b[1])), pct:0
+  }));
+}
+
+function initManualBands(){
+  const cfg = getGameConfig();
+  if(lastGameKey && lastGameKey !== cfg.key){ bandConfigsByGame[lastGameKey] = manualBands; }
+  manualBands = bandConfigsByGame[cfg.key] ? bandConfigsByGame[cfg.key] : defaultBandsFor(cfg);
+  bandConfigsByGame[cfg.key] = manualBands;
+  lastGameKey = cfg.key;
+}
+
+function getBandsForGameKey(gameKey, cfgForKey){
+  if(!bandConfigsByGame[gameKey]) bandConfigsByGame[gameKey] = defaultBandsFor(cfgForKey);
+  return bandConfigsByGame[gameKey];
+}
+
+function renderBandConfig(){
+  const cfg = getGameConfig();
+  document.getElementById('bandConfigCard').classList.toggle('hidden', currentMethod !== 'my');
+  document.getElementById('bandMainTarget').textContent = cfg.main;
+
+  const rowsEl = document.getElementById('bandRows');
+  rowsEl.innerHTML = '';
+  manualBands.forEach((band, i)=>{
+    const row = document.createElement('div');
+    row.className = 'band-row';
+    row.dataset.idx = i;
+    row.innerHTML = `
+      <div class="band-row-main">
+        <div class="blabel">B${i+1}</div>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="start" value="${band.start}">
+        <span class="band-dash">–</span>
+        <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="end" value="${band.end}">
+        <span class="band-tag">O</span>
+        <input class="band-sq odd-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="odd" value="${band.odd}">
+        <span class="band-tag">E</span>
+        <input class="band-sq even-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="even" value="${band.even}">
+        <span class="band-tag">A</span>
+        <input class="band-sq any-input" type="text" inputmode="numeric" pattern="[0-9]*" data-field="any" value="${band.any}">
+        <span class="band-tag">BLK</span>
+        ${band.block.map((bn,bi)=>`<input class="band-sq block-input" type="text" inputmode="numeric" pattern="[0-9]*" data-blockidx="${bi}" value="${bn}">`).join('')}
+        <span class="band-tag">%</span>
+        <input class="band-sq pct-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-field="pct" value="${band.pct}">
+        ${i>=5 ? `<button class="band-remove" data-idx="${i}">✕</button>` : ''}
+      </div>
+    `;
+    rowsEl.appendChild(row);
+  });
+
+  rowsEl.querySelectorAll('.band-sq[data-field]').forEach(inp=>{
+    inp.addEventListener('input', ()=>{
+      inp.value = inp.value.replace(/[^0-9]/g, '');
+      const row = inp.closest('.band-row'); const idx = parseInt(row.dataset.idx);
+      const field = inp.dataset.field; const val = parseInt(inp.value);
+      manualBands[idx][field] = isNaN(val) ? 0 : val;
+      updateBandTotal();
+    });
+  });
+  rowsEl.querySelectorAll('.block-input').forEach(inp=>{
+    inp.addEventListener('input', ()=>{
+      inp.value = inp.value.replace(/[^0-9]/g, '');
+      const row = inp.closest('.band-row'); const idx = parseInt(row.dataset.idx);
+      const bi = parseInt(inp.dataset.blockidx); const val = parseInt(inp.value);
+      manualBands[idx].block[bi] = isNaN(val) ? 0 : val;
+    });
+  });
+  rowsEl.querySelectorAll('.band-remove').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      manualBands.splice(parseInt(btn.dataset.idx), 1);
+      renderBandConfig();
+    });
+  });
+  updateBandTotal();
+}
+
+function bandPickTarget(cfg){
+  // When bonus is drawn from the exact same pool as main (e.g. Lotto: bonus is just another 1-52 ball),
+  // the band configuration should target all 7 numbers together, not just the 6 mains.
+  return (cfg.bonusMode === 'single' && cfg.bonusRange === cfg.range) ? cfg.main + 1 : cfg.main;
+}
+
+function updateBandTotal(){
+  const cfg = getGameConfig();
+  const target = bandPickTarget(cfg);
+  const total = manualBands.reduce((s,b)=> s + (b.odd||0) + (b.even||0) + (b.any||0), 0);
+  document.getElementById('bandTotalCount').textContent = total;
+  document.getElementById('bandMainTarget').textContent = target;
+  const hint = document.getElementById('bandTotalHint');
+  const row = document.getElementById('bandTotalRow');
+  if(total === target){ hint.textContent = '✓ matches'; row.classList.remove('mismatch'); }
+  else if(total < target){ hint.textContent = `${target - total} filled randomly`; row.classList.add('mismatch'); }
+  else { hint.textContent = `${total - target} extra will be trimmed`; row.classList.add('mismatch'); }
+}
+
+document.getElementById('addBandBtn').addEventListener('click', ()=>{
+  if(manualBands.length >= 10){ alert('Maximum 10 bands.'); return; }
+  const cfg = getGameConfig();
+  manualBands.push({start:1, end:cfg.range, odd:0, even:0, any:0, block:[1,2,3,4,5], pct:0});
+  renderBandConfig();
+});
+document.getElementById('resetBandsBtn').addEventListener('click', ()=>{
+  const cfg = getGameConfig();
+  manualBands = defaultBandsFor(cfg);
+  bandConfigsByGame[cfg.key] = manualBands;
+  renderBandConfig();
+});
+
+function getBands(range){
+  const size = Math.floor(range / 5); const remainder = range % 5;
+  const bands = []; let current = 1;
+  for(let i=0; i<5; i++){
+    let end = current + size - 1; if(i < remainder) end++;
+    bands.push([current, end]); current = end + 1;
+  }
+  return bands;
+}
+
+function nearestParityNumber(target, wantOdd, usedSet, lo, hi){
+  for(let d=1; d<=(hi-lo+1); d++){
+    const up = target + d, down = target - d;
+    if(up <= hi && !usedSet.has(up) && (wantOdd===null || (up % 2 === 1) === wantOdd)) return up;
+    if(down >= lo && !usedSet.has(down) && (wantOdd===null || (down % 2 === 1) === wantOdd)) return down;
+  }
+  for(let d=0; d<=(hi-lo+1); d++){
+    const up = target + d, down = target - d;
+    if(up <= hi && up >= lo && !usedSet.has(up)) return up;
+    if(down >= lo && down <= hi && !usedSet.has(down)) return down;
+  }
+  return null;
+}
+
+// ---------- COMPILING ENGINES MECHANICS ----------
+function generateMyMethodSet(cfg, unselectedPool, trackingPool){
+  const set = new Set();
+  const bandsToUse = (manualBands && manualBands.length) ? manualBands : defaultBandsFor(cfg);
+  const pickTarget = bandPickTarget(cfg); // 7 when bonus shares the main pool (e.g. Lotto), else cfg.main
+
+  const poolDensity = trackingPool.length / Math.max(1, cfg.range);
+  const anchorShiftChance = Math.min(0.55, 0.25 + poolDensity * 0.5);
+  let anchor = null;
+
+  const bandOrder = bandsToUse.map((_,i)=>i);
+  shuffle(bandOrder);
+
+  for(const bi of bandOrder){
+    const band = bandsToUse[bi];
+    const lo = Math.min(band.start, band.end), hi = Math.max(band.start, band.end);
+    const inBand = n => n >= lo && n <= hi && n >= 1 && n <= cfg.range;
+    const useBlock = band.block && band.block.length && (Math.random() * 100 < (band.pct || 0));
+
+    if(useBlock){
+      if(!blockCyclePointers[bi]) blockCyclePointers[bi] = 0;
+      const validBlock = band.block.filter(n => n >= 1 && n <= cfg.range);
+      if(validBlock.length > 0 && set.size < pickTarget){
+        let num = validBlock[blockCyclePointers[bi] % validBlock.length];
+        blockCyclePointers[bi]++;
+        if(set.has(num)){
+          const resolved = nearestParityNumber(num, num % 2 === 1, set, 1, cfg.range);
+          if(resolved !== null) num = resolved;
+        }
+        if(!set.has(num)){ set.add(num); anchor = num; }
+      }
+      continue;
+    }
+
+    const wants = [];
+    for(let k=0; k<(band.odd||0); k++) wants.push(true);
+    for(let k=0; k<(band.even||0); k++) wants.push(false);
+    let anyToggle = true;
+    for(let k=0; k<(band.any||0); k++){ wants.push(anyToggle); anyToggle = !anyToggle; }
+    shuffle(wants);
+
+    for(const wantOdd of wants){
+      if(set.size >= pickTarget) break;
+
+      const unselectedInBand = unselectedPool.filter(n => inBand(n) && (n % 2 === 1) === wantOdd);
+      const activeInBand = trackingPool.filter(n => inBand(n) && (n % 2 === 1) === wantOdd);
+      let candidatePool = (Math.random() > 0.4 && unselectedInBand.length > 0) ? unselectedInBand : activeInBand;
+      if(candidatePool.length === 0){
+        const anyUnselected = unselectedPool.filter(inBand);
+        const anyActive = trackingPool.filter(inBand);
+        candidatePool = anyUnselected.length ? anyUnselected : anyActive;
+      }
+
+      let placed = false;
+      if(anchor !== null && Math.random() < anchorShiftChance){
+        const shiftCandidates = [anchor + 1, anchor - 1].filter(n => inBand(n) && !set.has(n) && (n % 2 === 1) === wantOdd);
+        if(shiftCandidates.length > 0){
+          const num = shiftCandidates[randInt(0, shiftCandidates.length - 1)];
+          set.add(num); anchor = num; placed = true;
+        }
+      }
+
+      if(!placed && candidatePool.length > 0){
+        shuffle(candidatePool);
+        for(const num of candidatePool){
+          if(!set.has(num)){ set.add(num); anchor = num; placed = true; break; }
+        }
+        if(!placed){
+          const resolved = nearestParityNumber(candidatePool[0], wantOdd, set, lo, hi);
+          if(resolved !== null){ set.add(resolved); anchor = resolved; placed = true; }
+        }
+      }
+
+      if(!placed){
+        let attempts = 0;
+        while(attempts < 50){
+          const num = randInt(lo, hi);
+          if(inBand(num) && !set.has(num)){ set.add(num); anchor = num; placed = true; break; }
+          attempts++;
+        }
+      }
+    }
+    if(set.size >= pickTarget) break;
+  }
+
+  while(set.size < pickTarget){ set.add(randInt(1, cfg.range)); }
+  let picked = Array.from(set).slice(0, pickTarget);
+
+  let arr, bonus;
+  if(pickTarget > cfg.main){
+    // Bonus shares the main pool: pull one number out at random to be the (unsorted) bonus ball,
+    // sort the rest as the main line.
+    const bonusIdx = randInt(0, picked.length - 1);
+    const bonusVal = picked.splice(bonusIdx, 1)[0];
+    arr = picked.sort((a,b)=>a-b);
+    bonus = [bonusVal];
+  } else {
+    arr = picked.sort((a,b)=>a-b);
+    bonus = generateBonusSlots(cfg, arr);
+  }
+  return {main: arr, bonus};
+}
+
+function generateBonusSlots(cfg, mainArr){
+  if(cfg.bonusMode === 'none') return [];
+  const count = cfg.bonusMode === 'dual' ? 2 : 1;
+  const out = [];
+  for(let i=0;i<count;i++){
+    let b = randInt(1, cfg.bonusRange);
+    if(cfg.bonusRange === cfg.range){ while(mainArr.includes(b) || out.includes(b)) b = randInt(1, cfg.bonusRange); }
+    out.push(b);
+  }
+  return out;
+}
+
+function generatePoolMethodSet(cfg, unselectedPool, uniquePool, repeatedPool){
+  const set = new Set(); const poolA = [...repeatedPool]; const poolB = [...uniquePool]; const poolC = [...unselectedPool];
+  shuffle(poolA); shuffle(poolB); shuffle(poolC);
+
+  let idxA = 0, idxB = 0, idxC = 0;
+  while(set.size < Math.min(2, cfg.main) && idxA < poolA.length){ set.add(poolA[idxA++]); }
+  while(set.size < Math.min(4, cfg.main) && idxB < poolB.length){ set.add(poolB[idxB++]); }
+  while(set.size < cfg.main && idxC < poolC.length){ set.add(poolC[idxC++]); }
+
+  let overflowIdx = 0; const fallback = [...poolA.slice(idxA), ...poolB.slice(idxB), ...poolC.slice(idxC)];
+  shuffle(fallback);
+  while(set.size < cfg.main && overflowIdx < fallback.length){ set.add(fallback[overflowIdx++]); }
+  while(set.size < cfg.main){ set.add(randInt(1, cfg.range)); }
+
+  let arr = Array.from(set).sort((a,b)=>a-b);
+  const bonus = generateBonusSlots(cfg, arr);
+  return {main: arr, bonus};
+}
+
+function shuffle(arr){
+  for(let i=arr.length-1;i!==-1;i--){ const j = Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; }
+}
+
+// ---------- CONTROL SWITCH INITIALIZERS ----------
+document.getElementById('genBtn').addEventListener('click', ()=>{
+  const cfg = getGameConfig();
+  if(drawHistory.length===0) loadSample();
+  const {unselectedPool, uniquePool, repeatedPool} = analyzePool(cfg);
+  const trackingPool = [...uniquePool, ...repeatedPool];
+
+  generatedSetsGlobal = [];
+  blockCyclePointers = [];
+  for(let i=0;i<currentBatch;i++){
+    if(currentMethod==='my'){ generatedSetsGlobal.push(generateMyMethodSet(cfg, unselectedPool, trackingPool)); }
+    else { generatedSetsGlobal.push(generatePoolMethodSet(cfg, unselectedPool, uniquePool, repeatedPool)); }
+  }
+  renderResults(generatedSetsGlobal, cfg, unselectedPool);
+  renderStats(generatedSetsGlobal, cfg);
+  document.getElementById('checkerResultBox').classList.add('hidden');
+});
+
+function calculateLineDistributionMetrics(mainNumbers, cfg) {
+  let mid = 26; 
+  if (cfg.range === 50) mid = 25;
+  if (cfg.range === 36) mid = 18;
+
+  let low = 0, high = 0, odd = 0, even = 0;
+  mainNumbers.forEach(n => {
+    if(n <= mid) low++; else high++;
+    if(n % 2 === 1) odd++; else even++;
+  });
+  return {low, high, odd, even};
+}
+
+function renderResults(results, cfg, unselectedPool){
+  const el = document.getElementById('results'); el.innerHTML = '';
+  results.forEach((r,i)=>{
+    const div = document.createElement('div'); div.className = 'set'; div.id = `generated-row-${i}`;
+    let balls = r.main.map(n=>{
+      const isUnselected = unselectedPool.includes(n);
+      return `<div class="ball ${isUnselected ? 'unselected-highlight':''}" data-val="${n}">${n}</div>`;
+    }).join('');
+    (r.bonus || []).forEach((bv, bi)=>{
+      balls += `<div class="ball bonus" data-bonusval="${bv}" data-bonusidx="${bi}">${bv}</div>`;
+    });
+
+    const profile = calculateLineDistributionMetrics(r.main, cfg);
+    const metricsHtml = `
+      <div class="analytics-badge-box ${showLineMetrics ? '' : 'hidden'}">
+        <span class="an-badge l-range">${profile.low}L</span>
+        <span class="an-badge h-range">${profile.high}H</span>
+        <span class="an-badge parity">${profile.odd}O/${profile.even}E</span>
+      </div>
+    `;
+
+    div.innerHTML = `<div class="idx">#${i+1}</div><div class="boxes" style="gap:6px;">${balls}</div> ${metricsHtml}`;
+    el.appendChild(div);
+  });
+  lastRenderedCfg = cfg;
+  applyHighlightToggles();
+}
+
+// ---------- RESULT HIGHLIGHT TOGGLES ----------
+let highlightState = { lower:false, upper:false, odd:false, even:false };
+let lastRenderedCfg = null;
+
+function applyHighlightToggles(){
+  if(!lastRenderedCfg) return;
+  const mid = lastRenderedCfg.range / 2;
+  document.querySelectorAll('#results .ball[data-val]').forEach(ball=>{
+    const v = parseInt(ball.getAttribute('data-val'));
+    ball.classList.toggle('hl-lower', highlightState.lower && v <= mid);
+    ball.classList.toggle('hl-upper', highlightState.upper && v > mid);
+    ball.classList.toggle('hl-odd', highlightState.odd && v % 2 === 1);
+    ball.classList.toggle('hl-even', highlightState.even && v % 2 === 0);
+  });
+}
+
+document.querySelectorAll('.hl-toggle-bar button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const key = btn.dataset.hl;
+    highlightState[key] = !highlightState[key];
+    btn.classList.toggle('on', highlightState[key]);
+    applyHighlightToggles();
+  });
+});
+
+document.getElementById('clearResetBtn').addEventListener('click', ()=>{
+  generatedSetsGlobal = [];
+  document.getElementById('results').innerHTML = '<div class="sub">Run generation initialization to see values.</div>';
+  document.getElementById('statBar').innerHTML = '';
+  document.getElementById('checkerResultBox').classList.add('hidden');
+  document.getElementById('pnlSummary').innerHTML = '';
+  document.getElementById('pnlChart').innerHTML = '';
+  lastTierDistribution = null; lastScanLineCount = 0;
+  Object.keys(highlightState).forEach(k=>highlightState[k]=false);
+  document.querySelectorAll('.hl-toggle-bar button').forEach(b=>b.classList.remove('on'));
+});
+
+document.getElementById('toggleMetricsBtn').addEventListener('click', (e) => {
+  showLineMetrics = !showLineMetrics;
+  document.querySelectorAll('.analytics-badge-box').forEach(box => {
+    box.classList.toggle('hidden', !showLineMetrics);
+  });
+  e.target.textContent = showLineMetrics ? '📊 Hide Line Profiles' : '📊 Show Line Profiles';
+});
+
+function renderStats(results, cfg){
+  const allNums = results.flatMap(r=>r.main); const freq = {};
+  allNums.forEach(n=>freq[n]=(freq[n]||0)+1);
+  const mostCommon = Object.entries(freq).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('statBar').innerHTML = `
+    <div class="stat"><div class="v">${results.length}</div><div class="l">Sets Built</div></div>
+    <div class="stat"><div class="v">${Object.keys(freq).length}</div><div class="l">Distinct Nums</div></div>
+    <div class="stat"><div class="v">${mostCommon?mostCommon[0]:'-'}</div><div class="l">Most Frequent</div></div>
+    <div class="stat"><div class="v">${currentMethod==='my'?'MY':'QP'}</div><div class="l">Method</div></div>
+  `;
+}
+
+// ---------- SCAN ENGINE IMPLEMENTATIONS ----------
+function renderCheckerBoxes(){
+  const cfg = getGameConfig(); const drawBox = document.getElementById('checkerDrawBoxes'); if(!drawBox) return;
+  drawBox.innerHTML = '';
+  const slots = slotMeta(cfg);
+  slots.forEach((slot, pos)=>{
+    if(slot.type === 'hidden'){ drawBox.innerHTML += `<div class="numbox slot-inactive"></div>`; return; }
+    const cls = slot.type==='bonus' ? 'bonus-slot' : (slot.type==='pb2' ? 'pb2-slot' : '');
+    if(slot.type === 'main'){
+      drawBox.innerHTML += `<input class="numbox ${cls}" type="number" min="1" max="${slot.max}" data-drawpos="${pos}">`;
+    } else {
+      const bi = slot.type === 'pb2' ? 1 : 0;
+      const ph = slot.type === 'pb2' ? 'PB+' : (cfg.bonusMode==='dual' ? 'PB' : 'Bns');
+      drawBox.innerHTML += `<input class="numbox ${cls}" type="number" min="1" max="${slot.max}" data-drawbonus="${bi}" placeholder="${ph}">`;
+    }
+  });
+  document.getElementById('checkerResultBox').classList.add('hidden');
+}
+
+document.getElementById('checkBtn').addEventListener('click', ()=>{
+  const cfg = getGameConfig();
+  if (generatedSetsGlobal.length === 0) { alert('Initialize a calculation generation sweep first.'); return; }
+
+  const drawMain = Array.from(document.querySelectorAll('[data-drawpos]')).map(i=>parseInt(i.value)).filter(n=>!isNaN(n));
+  const drawBonus = Array.from(document.querySelectorAll('[data-drawbonus]'))
+    .sort((a,b)=>parseInt(a.dataset.drawbonus)-parseInt(b.dataset.drawbonus))
+    .map(el=>parseInt(el.value));
+
+  if(drawMain.length < cfg.main) { alert('Populate all matching engine matrix inputs before sweeping.'); return; }
+
+  let winningLinesCount = 0;
+  let perfectMatchCount = 0;
+  const totalSlots = cfg.main + cfg.bonus; // 7 for Lotto (6+1) and Powerball (5+2), 5 for Daily Lotto
+  const tierDistributionMap = {};
+  const tiers = PRIZE_TIERS[cfg.key] || PRIZE_TIERS.lotto;
+  tiers.forEach(t => tierDistributionMap[t.label] = 0);
+
+  generatedSetsGlobal.forEach((set, idx) => {
+    const rowEl = document.getElementById(`generated-row-${idx}`);
+    if(!rowEl) return;
+
+    rowEl.classList.remove('has-prize');
+    const ballElements = rowEl.querySelectorAll('[data-val]');
+    const bonusElements = rowEl.querySelectorAll('[data-bonusval]');
+
+    let matchedMainCount = 0;
+    ballElements.forEach(ball => {
+      const v = parseInt(ball.getAttribute('data-val'));
+      if(drawMain.includes(v)) { ball.classList.add('match-hit'); matchedMainCount++; } 
+      else { ball.classList.remove('match-hit'); }
+    });
+
+    let bonusMatch = false;
+    let bonusMatchCount = 0;
+    bonusElements.forEach(bonusElement=>{
+      const bv = parseInt(bonusElement.getAttribute('data-bonusval'));
+      const bi = parseInt(bonusElement.getAttribute('data-bonusidx')) || 0;
+      const target = drawBonus[bi];
+      if(!isNaN(target) && bv === target) { bonusElement.classList.add('match-hit'); bonusMatch = true; bonusMatchCount++; }
+      else { bonusElement.classList.remove('match-hit'); }
+    });
+
+    const totalMatched = matchedMainCount + bonusMatchCount;
+    let badge = rowEl.querySelector('.total-match-badge');
+    if(!badge){ badge = document.createElement('div'); badge.className = 'total-match-badge'; rowEl.appendChild(badge); }
+    badge.textContent = `${totalMatched}/${totalSlots}`;
+    badge.style.cssText = `font-family:'Space Mono'; font-size:11px; font-weight:700; margin-left:auto; padding:3px 8px; border:1px solid ${totalMatched===totalSlots?'var(--good)':'var(--line)'}; color:${totalMatched===totalSlots?'var(--good)':'var(--sub)'};`;
+    if(totalMatched === totalSlots) perfectMatchCount++;
+
+    let matchedTier = null;
+    for(const tier of tiers){
+      if(matchedMainCount === tier.m && (!tier.b || bonusMatch)){ matchedTier = tier; break; }
+    }
+
+    if(matchedTier) {
+      rowEl.classList.add('has-prize');
+      tierDistributionMap[matchedTier.label]++;
+      winningLinesCount++;
+    }
+  });
+
+  const big = document.getElementById('checkerBig');
+  big.textContent = `${winningLinesCount} / ${generatedSetsGlobal.length} Hits`;
+  big.style.color = winningLinesCount > 0 ? 'var(--good)' : 'var(--danger)';
+  
+  document.getElementById('checkerVerdict').textContent = `System Scan Complete across ${generatedSetsGlobal.length} active sets — ${perfectMatchCount} line(s) matched ${totalSlots}/${totalSlots}`;
+
+  let tierMetricsHtml = '<div style="color:var(--sub);font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em;">Target Run Prize Hits Summary</div>';
+  tiers.forEach(tier => {
+    const count = tierDistributionMap[tier.label];
+    tierMetricsHtml += `<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--line);color:${count > 0 ? 'var(--good)' : 'var(--sub)'};">
+      <span>${tier.label}</span>
+      <span style="font-family:'Space Mono'; font-weight:bold;">${count} hits</span>
+    </div>`;
+  });
+
+  document.getElementById('checkerTiers').innerHTML = tierMetricsHtml;
+  document.getElementById('checkerResultBox').classList.remove('hidden');
+
+  lastTierDistribution = tierDistributionMap;
+  lastScanGameKey = cfg.key;
+  lastScanLineCount = generatedSetsGlobal.length;
+});
+
+let lastTierDistribution = null;
+let lastScanGameKey = null;
+let lastScanLineCount = 0;
+
+document.getElementById('pnlCalcBtn').addEventListener('click', ()=>{
+  if(!lastTierDistribution){ alert('Run "Scan Generated Batch" first so there is something to price.'); return; }
+  const values = prizeValuesFor(lastScanGameKey);
+  const costPerLine = parseFloat(document.getElementById('pnlCostPerLine').value) || 0;
+  const totalSpend = costPerLine * lastScanLineCount;
+
+  let totalWinnings = 0;
+  const breakdown = [];
+  Object.entries(lastTierDistribution).forEach(([label, count])=>{
+    if(count > 0){
+      const val = values[label] || 0;
+      totalWinnings += val * count;
+      breakdown.push({label, count, val, subtotal: val*count});
+    }
+  });
+
+  const net = totalWinnings - totalSpend;
+  document.getElementById('pnlSummary').innerHTML = `
+    <div class="pnl-box"><div class="v">R${totalSpend.toLocaleString()}</div><div class="l">Total Spend</div></div>
+    <div class="pnl-box"><div class="v">R${totalWinnings.toLocaleString()}</div><div class="l">Total Winnings</div></div>
+    <div class="pnl-box ${net>=0?'profit':'loss'}"><div class="v">${net>=0?'+':''}R${net.toLocaleString()}</div><div class="l">Net ${net>=0?'Profit':'Loss'}</div></div>
+  `;
+
+  // Simple inline bar chart: Spend vs Winnings
+  const maxVal = Math.max(totalSpend, totalWinnings, 1);
+  const barW = 90, gap = 40, chartH = 90, baseY = 130;
+  const spendH = (totalSpend/maxVal) * chartH;
+  const winH = (totalWinnings/maxVal) * chartH;
+  const svg = document.getElementById('pnlChart');
+  svg.setAttribute('viewBox', '0 0 300 155');
+  svg.innerHTML = `
+    <rect x="40" y="${baseY-spendH}" width="${barW}" height="${spendH}" fill="var(--danger)" opacity="0.75"/>
+    <text x="${40+barW/2}" y="145" text-anchor="middle" font-size="10" fill="var(--sub)" font-family="Space Mono">SPEND</text>
+    <text x="${40+barW/2}" y="${Math.max(baseY-spendH-8,14)}" text-anchor="middle" font-size="10" fill="var(--text)" font-family="Space Mono">R${totalSpend.toLocaleString()}</text>
+    <rect x="${40+barW+gap}" y="${baseY-winH}" width="${barW}" height="${winH}" fill="var(--good)" opacity="0.75"/>
+    <text x="${40+barW+gap+barW/2}" y="145" text-anchor="middle" font-size="10" fill="var(--sub)" font-family="Space Mono">WINNINGS</text>
+    <text x="${40+barW+gap+barW/2}" y="${Math.max(baseY-winH-8,14)}" text-anchor="middle" font-size="10" fill="var(--text)" font-family="Space Mono">R${totalWinnings.toLocaleString()}</text>
+  `;
+});
+
+// ---------- NUMBER PICKER BUDGET PLANNER ----------
+const PICKER_GAMES = [
+  {key:'lotto', label:'LOTTO', range:52, main:6, bonusMode:'single', bonusRange:52},
+  {key:'plus1', label:'LOTTO PLUS 1', range:52, main:6, bonusMode:'single', bonusRange:52},
+  {key:'max5', label:'LOTTO MAX', range:52, main:6, bonusMode:'single', bonusRange:52},
+  {key:'powerball', label:'POWERBALL / PLUS', range:50, main:5, bonusMode:'dual', bonusRange:20},
+  {key:'daily', label:'DAILY LOTTO', range:36, main:5, bonusMode:'none', bonusRange:36},
+];
+let pickerManualLines = {};  // gameKey -> array of {main:[...], bonus:[...]}
+let pickerTapSelection = { lottoGroup:{main:[],bonus:[]}, powerball:{main:[],bonus:[]}, daily:{main:[],bonus:[]} };
+let pickerHistory = [];      // [{ts, selections:[{label,count}]}]
+let activePickerTab = 'lottoGroup';
+
+function pickerCfgFor(g){
+  return { range:g.range, main:g.main, bonusMode:g.bonusMode, bonus: g.bonusMode==='none'?0:(g.bonusMode==='dual'?2:1), bonusRange:g.bonusRange, key:g.key };
+}
+
+function pickerGameRow(g){
+  pickerManualLines[g.key] = pickerManualLines[g.key] || [];
+  return `
+    <div class="numbox-row" style="align-items:center; margin-bottom:6px;">
+      <input type="checkbox" class="picker-check" data-game="${g.key}" style="width:22px; height:22px; flex-shrink:0; accent-color: var(--gold);">
+      <div class="dlabel" style="width:120px; font-weight:bold;">${g.label}</div>
+      <input class="band-sq" type="text" inputmode="numeric" pattern="[0-9]*" data-game-lines="${g.key}" value="0" style="width:64px !important; flex:0 0 64px !important; height: 38px;">
+      <span class="band-tag">auto lines</span>
+    </div>
+    <div class="picker-manual-lines" id="pickerManualList-${g.key}"></div>
+  `;
+}
+
+function padGrid(rangeMax, groupKey, type){
+  let html = '';
+  for(let i=1;i<=rangeMax;i++){ html += `<div class="pad-cell" data-picker-group="${groupKey}" data-picker-type="${type}" data-picker-num="${i}">${i}</div>`; }
+  return html;
+}
+
+function renderPickerRows(){
+  const el = document.getElementById('pickerRows');
+  if(!el || el.dataset.built) return;
+  el.dataset.built = '1';
+
+  el.innerHTML = `
+    <div class="hl-toggle-bar" id="pickerTabBar">
+      <button data-ptab="lottoGroup" class="on">Lotto Games</button>
+      <button data-ptab="daily">Daily Lotto</button>
+      <button data-ptab="powerball">Powerball</button>
+    </div>
+
+    <div id="pickerPanel-lottoGroup" class="picker-panel">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a line (6 numbers + 1 bonus) — one grid, shared by Lotto / Lotto Plus 1 / Lotto Max. Tick which games it should apply to below.</label>
+      <div class="pad-board">${padGrid(52,'lottoGroup','main')}</div>
+      <label style="font-size:11px; color:var(--sub); display:block; margin-top:8px;">Bonus Ball Pool (1–52)</label>
+      <div class="pad-board">${padGrid(52,'lottoGroup','bonus')}</div>
+      <div class="pad-counter">
+        <span id="pickerCount-lottoGroup">Mains: <strong>0 / 6</strong> | Bonus: <strong>0 / 1</strong></span>
+      </div>
+      <div style="display:flex; gap:14px; margin:10px 0; font-size:12px; font-family:'Space Mono';">
+        <label><input type="checkbox" class="apply-to-check" data-apply="lotto" checked style="accent-color:var(--gold);"> Lotto</label>
+        <label><input type="checkbox" class="apply-to-check" data-apply="plus1" checked style="accent-color:var(--gold);"> Plus 1</label>
+        <label><input type="checkbox" class="apply-to-check" data-apply="max5" checked style="accent-color:var(--gold);"> Max</label>
+      </div>
+      <button class="util-btn good picker-add-manual" data-group="lottoGroup" style="flex:none; width:auto; padding:6px 12px; font-size:11px;">+ Add This Line</button>
+      <div style="margin-top:14px; padding-top:10px; border-top:1px dashed var(--line);">
+        ${pickerGameRow(PICKER_GAMES[0])}
+        ${pickerGameRow(PICKER_GAMES[1])}
+        ${pickerGameRow(PICKER_GAMES[2])}
+      </div>
+    </div>
+
+    <div id="pickerPanel-daily" class="picker-panel hidden">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a Daily Lotto line (5 numbers).</label>
+      <div class="pad-board">${padGrid(36,'daily','main')}</div>
+      <div class="pad-counter"><span id="pickerCount-daily">Mains: <strong>0 / 5</strong></span></div>
+      <button class="util-btn good picker-add-manual" data-group="daily" style="flex:none; width:auto; padding:6px 12px; font-size:11px; margin:10px 0;">+ Add This Line</button>
+      <div style="padding-top:10px; border-top:1px dashed var(--line);">${pickerGameRow(PICKER_GAMES[4])}</div>
+    </div>
+
+    <div id="pickerPanel-powerball" class="picker-panel hidden">
+      <label style="font-size:11px; color:var(--sub);">Tap to hand-pick a Powerball line (5 numbers + 1 PB). Powerball Plus's own PB number is filled automatically since it's drawn separately.</label>
+      <div class="pad-board">${padGrid(50,'powerball','main')}</div>
+      <label style="font-size:11px; color:var(--sub); display:block; margin-top:8px;">Powerball Pool (1–20)</label>
+      <div class="pad-board">${padGrid(20,'powerball','bonus')}</div>
+      <div class="pad-counter"><span id="pickerCount-powerball">Mains: <strong>0 / 5</strong> | PB: <strong>0 / 1</strong></span></div>
+      <button class="util-btn good picker-add-manual" data-group="powerball" style="flex:none; width:auto; padding:6px 12px; font-size:11px; margin:10px 0;">+ Add This Line</button>
+      <div style="padding-top:10px; border-top:1px dashed var(--line);">${pickerGameRow(PICKER_GAMES[3])}</div>
+    </div>
+  `;
+
+  document.getElementById('pickerTabBar').querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activePickerTab = btn.dataset.ptab;
+      document.getElementById('pickerTabBar').querySelectorAll('button').forEach(b=>b.classList.toggle('on', b===btn));
+      ['lottoGroup','daily','powerball'].forEach(k=> document.getElementById(`pickerPanel-${k}`).classList.toggle('hidden', k!==activePickerTab));
+    });
+  });
+
+  el.querySelectorAll('.pad-cell').forEach(cell=>{
+    cell.addEventListener('click', ()=>{
+      const groupKey = cell.dataset.pickerGroup, type = cell.dataset.pickerType, num = parseInt(cell.dataset.pickerNum);
+      const caps = { lottoGroup:{main:6,bonus:1}, powerball:{main:5,bonus:1}, daily:{main:5,bonus:0} };
+      const sel = pickerTapSelection[groupKey];
+      const arr = type==='main' ? sel.main : sel.bonus;
+      const cap = type==='main' ? caps[groupKey].main : caps[groupKey].bonus;
+      const idx = arr.indexOf(num);
+      if(idx > -1){ arr.splice(idx,1); cell.classList.remove(type==='main'?'sel-active':'bonus-active'); }
+      else {
+        if(arr.length >= cap){ alert(`${type==='main'?'Main':'Bonus'} picks capped at ${cap}.`); return; }
+        arr.push(num); cell.classList.add(type==='main'?'sel-active':'bonus-active');
+      }
+      updatePickerCounter(groupKey);
+    });
+  });
+
+  el.querySelectorAll('.picker-add-manual').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const groupKey = btn.dataset.group;
+      const caps = { lottoGroup:{main:6,bonus:1}, powerball:{main:5,bonus:1}, daily:{main:5,bonus:0} };
+      const sel = pickerTapSelection[groupKey];
+      const cap = caps[groupKey];
+      if(sel.main.length < cap.main){ alert(`Pick all ${cap.main} main numbers before adding the line.`); return; }
+      if(cap.bonus && sel.bonus.length < cap.bonus){ alert(`Pick the bonus number before adding the line.`); return; }
+
+      const mainSorted = [...sel.main].sort((a,b)=>a-b);
+
+      if(groupKey === 'lottoGroup'){
+        const targets = Array.from(el.querySelectorAll('.apply-to-check:checked')).map(c=>c.dataset.apply);
+        if(targets.length === 0){ alert('Tick at least one of Lotto / Plus 1 / Max to apply this line to.'); return; }
+        targets.forEach(key=>{
+          pickerManualLines[key].push({ main:[...mainSorted], bonus:[...sel.bonus] });
+          renderPickerManualList(key);
+        });
+      } else if(groupKey === 'powerball'){
+        const pbPlus = randInt(1,20);
+        pickerManualLines['powerball'].push({ main:[...mainSorted], bonus:[sel.bonus[0], pbPlus] });
+        renderPickerManualList('powerball');
+      } else if(groupKey === 'daily'){
+        pickerManualLines['daily'].push({ main:[...mainSorted], bonus:[] });
+        renderPickerManualList('daily');
+      }
+
+      sel.main = []; sel.bonus = [];
+      document.getElementById(`pickerPanel-${groupKey}`).querySelectorAll('.pad-cell.sel-active, .pad-cell.bonus-active').forEach(c=>c.classList.remove('sel-active','bonus-active'));
+      updatePickerCounter(groupKey);
+    });
+  });
+}
+
+function updatePickerCounter(groupKey){
+  const sel = pickerTapSelection[groupKey];
+  const span = document.getElementById(`pickerCount-${groupKey}`);
+  if(!span) return;
+  if(groupKey === 'daily'){ span.innerHTML = `Mains: <strong>${sel.main.length} / 5</strong>`; }
+  else if(groupKey === 'powerball'){ span.innerHTML = `Mains: <strong>${sel.main.length} / 5</strong> | PB: <strong>${sel.bonus.length} / 1</strong>`; }
+  else { span.innerHTML = `Mains: <strong>${sel.main.length} / 6</strong> | Bonus: <strong>${sel.bonus.length} / 1</strong>`; }
+}
+
+function renderPickerManualList(gameKey){
+  const listEl = document.getElementById(`pickerManualList-${gameKey}`);
+  if(!listEl) return;
+  const lines = pickerManualLines[gameKey] || [];
+  if(lines.length === 0){ listEl.innerHTML = ''; return; }
+  listEl.innerHTML = 'Hand-picked lines queued: ' + lines.map((l,i)=>`#${i+1}: ${l.main.join(',')}${l.bonus.length?' + '+l.bonus.join(','):''}`).join(' &nbsp;|&nbsp; ');
+}
+
+document.getElementById('pickerGenBtn').addEventListener('click', ()=>{
+  const currentSelectedKey = getGameConfig().key;
+  const savedManualBands = manualBands;
+  const savedPointers = blockCyclePointers;
+  const groups = [];
+  const historyEntry = [];
+
+  document.querySelectorAll('.picker-check:checked').forEach(chk=>{
+    const key = chk.dataset.game;
+    const lineInput = document.querySelector(`[data-game-lines="${key}"]`);
+    const autoCount = parseInt(lineInput.value) || 0;
+    const manualLines = pickerManualLines[key] || [];
+    if(autoCount <= 0 && manualLines.length === 0) return;
+
+    const g = PICKER_GAMES.find(p=>p.key===key);
+    const cfg = pickerCfgFor(g);
+
+    let unselectedPool = [], trackingPool = [];
+    if(key === currentSelectedKey){
+      const analysis = analyzePool(cfg);
+      unselectedPool = analysis.unselectedPool;
+      trackingPool = [...analysis.uniquePool, ...analysis.repeatedPool];
+    }
+
+    manualBands = getBandsForGameKey(key, cfg);
+    blockCyclePointers = [];
+    const sets = manualLines.map(l=>({main:[...l.main], bonus:[...l.bonus]}));
+    for(let i=0;i<autoCount;i++){ sets.push(generateMyMethodSet(cfg, unselectedPool, trackingPool)); }
+    groups.push({label:g.label, key, cfg, sets, manualCount:manualLines.length, autoCount});
+    historyEntry.push({label:g.label, count:sets.length, manual:manualLines.length, auto:autoCount});
+    pickerManualLines[key] = [];
+    renderPickerManualList(key);
+  });
+
+  manualBands = savedManualBands;
+  blockCyclePointers = savedPointers;
+
+  if(historyEntry.length > 0){
+    pickerHistory.unshift({ts: new Date().toLocaleString('en-ZA', {dateStyle:'medium', timeStyle:'short'}), selections: historyEntry});
+    renderPickerHistory();
+  }
+  renderPickerResults(groups);
+});
+
+function renderPickerHistory(){
+  const el = document.getElementById('pickerHistoryLog');
+  if(pickerHistory.length === 0){ el.innerHTML = 'No runs yet.'; return; }
+  el.innerHTML = pickerHistory.map(run => `
+    <div style="padding:8px 0; border-bottom:1px solid var(--line);">
+      <div style="color:var(--gold); margin-bottom:4px;">${run.ts}</div>
+      ${run.selections.map(s=>`<div>${s.label}: ${s.count} lines${s.manual?` (${s.manual} hand-picked + ${s.auto} auto)`:''}</div>`).join('')}
+    </div>
+  `).join('');
+}
+
+
+function renderPickerResults(groups){
+  const el = document.getElementById('pickerResults');
+  if(groups.length === 0){ el.innerHTML = '<div class="card"><div class="sub">Tick at least one game and set a line count above 0.</div></div>'; return; }
+
+  el.innerHTML = groups.map(grp => {
+    const rows = grp.sets.map((r,i)=>{
+      const balls = r.main.map(n=>`<div class="ball">${n}</div>`).join('') + (r.bonus||[]).map(bv=>`<div class="ball bonus">${bv}</div>`).join('');
+      return `<div class="set"><div class="idx">${i+1}</div><div class="boxes">${balls}</div></div>`;
+    }).join('');
+    return `
+      <div class="card" data-group="${grp.key}">
+        <h2>${grp.label} — ${grp.sets.length} Lines</h2>
+        <div class="util-row">
+          <button class="util-btn good picker-copy" data-group="${grp.key}">📋 Copy to Clipboard</button>
+          <button class="util-btn picker-download" data-group="${grp.key}">⬇ Download .txt</button>
+        </div>
+        <div class="results" style="margin-top:10px;">${rows}</div>
+      </div>
+    `;
+  }).join('');
+
+  el.dataset.groups = JSON.stringify(groups.map(g=>({
+    label:g.label, key:g.key,
+    lines: g.sets.map(r => r.main.join(', ') + (r.bonus && r.bonus.length ? ' + ' + r.bonus.join(', ') : ''))
+  })));
+
+  el.querySelectorAll('.picker-copy').forEach(btn=>{
+    btn.addEventListener('click', () => {
+      const groupsData = JSON.parse(el.dataset.groups);
+      const g = groupsData.find(x=>x.key===btn.dataset.group);
+      const text = `${g.label}\n` + g.lines.map((l,i)=>`Line ${i+1}: ${l}`).join('\n');
+      navigator.clipboard.writeText(text).then(()=>{ btn.textContent = '✓ Copied!'; setTimeout(()=>btn.textContent='📋 Copy to Clipboard', 1500); });
+    });
+  });
+  el.querySelectorAll('.picker-download').forEach(btn=>{
+    btn.addEventListener('click', () => {
+      const groupsData = JSON.parse(el.dataset.groups);
+      const g = groupsData.find(x=>x.key===btn.dataset.group);
+      const text = `${g.label}\n` + g.lines.map((l,i)=>`Line ${i+1}: ${l}`).join('\n');
+      const blob = new Blob([text], {type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `DevSoft_${g.key}_lines.txt`;
+      a.click();
+    });
+  });
+}
+
+// ---------- INITIALIZATION ENGINE SETUP ----------
+document.getElementById('gameSelect').addEventListener('change', ()=>{ 
+  loadSample(); 
+  renderDrawInputs(); 
+  renderCheckerBoxes(); 
+  initManualBands(); 
+  renderBandConfig(); 
+  renderInteractiveGamePad(); 
+});
+
+// Application Start Sweep
+loadSample();
+renderDrawInputs();
+renderCheckerBoxes();
+initManualBands();
+renderBandConfig();
+renderInteractiveGamePad();
+renderPickerRows();
+</script>
+
+
+</body></html>
